@@ -626,6 +626,8 @@ html.dark .theme-toggle .icon-sun { display: block; }
 }
 .about-body p { color: var(--ink-soft); margin-bottom: 14px; font-size: 1rem; }
 .about-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-faint); margin: 18px 0 10px; letter-spacing: 1px; }
+.about-facts a.chip { transition: transform .2s ease, box-shadow .2s ease; }
+.about-facts a.chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
 
 /* GitHub 贡献图 */
 .gh-chart { margin-top: 28px; position: relative; z-index: 1; }
@@ -1248,6 +1250,10 @@ html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A);
 /* 推し chips：整块可点击 */
 .oshi-chips li { padding: 0; }
 .oshi-chips a { display: block; padding: 10px 20px; color: inherit; }
+
+/* 技能/兴趣 chips 带链接：整块可点击 */
+.skill-chips li.has-link { padding: 0; }
+.skill-chips li.has-link a { display: block; padding: 10px 20px; color: inherit; }
 
 /* 推し IP 徽章 / 分组标题 */
 .oshi-ip, .oshi-group {
