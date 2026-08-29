@@ -1037,6 +1037,9 @@ html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A);
 .footer-links { display: flex; justify-content: center; gap: 20px; margin: 14px 0; flex-wrap: wrap; }
 .footer-links a { color: var(--ink-soft); font-size: 0.9rem; font-weight: 600; }
 .footer-links a:hover { color: var(--pink-deep); }
+.footer-social { display: flex; justify-content: center; gap: 20px; margin: 14px 0; flex-wrap: wrap; }
+.footer-social a { color: var(--ink-soft); font-size: 0.9rem; font-weight: 600; }
+.footer-social a:hover { color: var(--pink-deep); }
 .footer-copy { color: var(--ink-faint); font-size: 0.82rem; font-family: var(--font-latin); }
 .footer-copy .jp { font-family: var(--font-body); }
 
