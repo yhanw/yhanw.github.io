@@ -816,12 +816,22 @@ html.dark .theme-toggle .icon-sun { display: block; }
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.95);
 }
-.oa-pink { background: linear-gradient(135deg, #FFD3E3, #FF8FB8); }
-.oa-sky { background: linear-gradient(135deg, #D6F0FF, #7FC8FF); }
-.oa-blue { background: linear-gradient(135deg, #C8DFFF, #5E9CFF); }
-.oa-lilac { background: linear-gradient(135deg, #E3DAFF, #A78BFA); }
-.oa-lemon { background: linear-gradient(135deg, #FFF0C2, #FFC94D); }
-.oa-coral { background: linear-gradient(135deg, #FFD9CC, #FF8A6B); }
+.oa-minori { background: linear-gradient(135deg, #FFDCEB, #FF6FA5); border-color: #FF6FA5; }
+.oa-shizuku { background: linear-gradient(135deg, #D6F1FF, #7AD8FF); border-color: #7AD8FF; }
+.oa-tae { background: linear-gradient(135deg, #D3E9FF, #2E9BFF); border-color: #2E9BFF; }
+.oa-sayo { background: linear-gradient(135deg, #E4D9F9, #8C5BE1); border-color: #8C5BE1; }
+.oa-kokoro { background: linear-gradient(135deg, #FFE7CC, #FF8F2C); border-color: #FF8F2C; }
+.oa-rokka { background: linear-gradient(135deg, #FFD9D9, #FF5555); border-color: #FF5555; }
+.oshi-row .oshi-avatar { border: 3px solid transparent; }
+.oshi-row .oshi-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+}
 .oshi-info { flex: 1; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; }
 .oshi-name { font-family: var(--font-display); font-size: 1.15rem; }
 .oshi-sub { font-family: var(--font-latin); font-size: 0.78rem; color: var(--ink-faint); letter-spacing: 0.5px; }
