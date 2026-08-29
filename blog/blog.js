@@ -1,5 +1,5 @@
 /* ============================================================
-   yhanw · 个人主页 — 博客脚本（列表 / 文章 / Markdown 渲染）
+   yhw · 个人主页 — 博客脚本（列表 / 文章 / Markdown 渲染）
    ============================================================ */
 (function () {
   'use strict';
@@ -241,7 +241,7 @@
         posts.forEach(function (p) { if (p.id === id) post = p; });
         if (!post) { body.innerHTML = '<p>这篇文章不存在或已删除。</p>'; return; }
 
-        document.title = post.title + ' · yhanw';
+        document.title = post.title + ' · yhw';
         hero.querySelector('.post-hero-cat').textContent = post.category || '随笔';
         hero.querySelector('.post-hero-date').textContent = fmtDate(post.date);
         var tagBox = hero.querySelector('.post-hero-tags');
