@@ -203,4 +203,31 @@
         ghEmpty('⚠️', 'GitHub 项目加载失败，请稍后再试。');
       });
   }
+
+  /* ---------- 顶部阅读进度条 ---------- */
+  var prog = document.createElement('div');
+  prog.className = 'scroll-progress';
+  prog.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(prog);
+  var onScrollProg = function () {
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - doc.clientHeight;
+    prog.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+  };
+  window.addEventListener('scroll', onScrollProg, { passive: true });
+  onScrollProg();
+
+  /* ---------- 键盘快捷键（/ 聚焦搜索，T 切换主题） ---------- */
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === '/') {
+      e.preventDefault();
+      var sb = document.getElementById('blog-search');
+      if (sb) sb.focus();
+    } else if (e.key === 't' || e.key === 'T') {
+      var tb = document.getElementById('theme-toggle');
+      if (tb) tb.click();
+    }
+  });
 })();

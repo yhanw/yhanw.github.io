@@ -324,6 +324,30 @@
               tocBox.style.display = 'none';
             }
           }
+
+          /* 代码块复制按钮 */
+          body.querySelectorAll('pre.code-block').forEach(function (pre) {
+            var btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.type = 'button';
+            btn.textContent = '复制';
+            btn.addEventListener('click', function () {
+              var code = pre.querySelector('code');
+              var text = code ? code.innerText : '';
+              if (!text) return;
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function () {
+                  btn.textContent = '已复制 ✓';
+                  setTimeout(function () { btn.textContent = '复制'; }, 1500);
+                }).catch(function () {
+                  btn.textContent = '复制失败';
+                });
+              } else {
+                btn.textContent = '复制失败';
+              }
+            });
+            pre.appendChild(btn);
+          });
         });
       })
       .catch(function () {
