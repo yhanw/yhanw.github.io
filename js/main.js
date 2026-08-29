@@ -145,4 +145,44 @@
   /* ---------- 页脚年份 ---------- */
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---------- GitHub 项目 ---------- */
+  var ghBox = document.getElementById('gh-projects');
+  if (ghBox) {
+    var LANG_COLORS = {
+      'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'Python': '#3572A5',
+      'HTML': '#e34c26', 'CSS': '#563d7c', 'C': '#555555', 'C++': '#f34b7d',
+      'Vue': '#41b883', 'Shell': '#89e051', 'Go': '#00ADD8', 'Rust': '#dea584',
+      'Jupyter Notebook': '#DA5B0B'
+    };
+    function ghEsc(s) {
+      return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function ghEmpty(icon, msg) {
+      ghBox.innerHTML = '<div class="blog-empty" style="grid-column:1/-1"><div class="big">' + icon + '</div><p>' + msg + '</p></div>';
+    }
+    fetch('https://api.github.com/users/yhanw/repos?type=owner&sort=updated&per_page=6')
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (repos) {
+        repos = (repos || []).slice();
+        if (!repos.length) { ghEmpty('📦', '仓库整理中，之后会在这里展示。'); return; }
+        ghBox.innerHTML = '';
+        repos.forEach(function (r) {
+          var color = LANG_COLORS[r.language] || '#9E8C95';
+          var card = document.createElement('article');
+          card.className = 'project-card reveal in';
+          card.innerHTML =
+            '<div class="project-body">' +
+            '<h3><a href="' + ghEsc(r.html_url) + '" target="_blank" rel="noopener">' + ghEsc(r.name) + ' ↗</a></h3>' +
+            '<div class="proj-tag"><span class="lang-dot" style="background:' + color + '"></span>' + ghEsc(r.language || '未知语言') + '</div>' +
+            '<p>' + ghEsc(r.description || '暂无描述') + '</p>' +
+            '<div class="project-tags"><span>⭐ ' + r.stargazers_count + '</span><span>⑂ ' + r.forks_count + '</span>' + (r.fork ? '<span>Fork</span>' : '') + '</div>' +
+            '</div>';
+          ghBox.appendChild(card);
+        });
+      })
+      .catch(function () {
+        ghEmpty('⚠️', 'GitHub 项目加载失败，请稍后再试。');
+      });
+  }
 })();
