@@ -805,17 +805,6 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .friend-card b { font-size: 1rem; display: block; }
 .friend-card p { font-size: 0.82rem; color: var(--ink-soft); margin-top: 2px; }
 
-/* ---------- 项目 + 技能 并列 ---------- */
-.split-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: start;
-  padding: 90px 0;
-}
-.split-row .section-block { padding: 0; }
-.split-row .section-head { margin-bottom: 36px; }
-
 /* ---------- 推し（列表） ---------- */
 .oshi-list {
   display: flex;
@@ -1320,7 +1309,6 @@ html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A);
   .hero-stage { order: -1; margin-bottom: 10px; }
   .hero { min-height: auto; padding-top: 50px; }
   .skills-grid { grid-template-columns: 1fr; }
-  .split-row { grid-template-columns: 1fr; padding: 60px 0; }
   .projects-grid { grid-template-columns: 1fr; }
   .friends-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
