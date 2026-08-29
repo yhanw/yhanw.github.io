@@ -1081,6 +1081,31 @@ ul { list-style: none; }
 .oshi-chips li { padding: 0; }
 .oshi-chips a { display: block; padding: 10px 20px; color: inherit; }
 
+/* 推し IP 徽章 / 分组标题 */
+.oshi-ip, .oshi-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 2px solid;
+  transition: transform .2s ease;
+}
+.oshi-ip { margin-bottom: 12px; }
+.oshi-ip:hover, .oshi-group:hover { transform: translateY(-2px); }
+.ip-pjsk { background: var(--mint-soft); color: var(--mint-deep); border-color: var(--mint); }
+.ip-bd { background: var(--pink-soft); color: var(--pink-deep); border-color: var(--pink); }
+.ip-d4dj { background: var(--lilac-soft); color: var(--lilac-deep); border-color: var(--lilac); }
+.oshi-card.ip-pjsk { border-top: 5px solid var(--mint); }
+.oshi-card.ip-bd { border-top: 5px solid var(--pink); }
+.oshi-card.ip-d4dj { border-top: 5px solid var(--lilac); }
+.oshi-group { margin: 18px 0 12px; font-size: 0.85rem; }
+.ip-group > .oshi-group:first-child { margin-top: 0; }
+.ip-group .skill-chips { margin-bottom: 4px; }
+
 /* 名言 */
 .quote {
   background: linear-gradient(135deg, var(--pink-soft), var(--lilac-soft));
