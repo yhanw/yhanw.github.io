@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}</script>
+  <meta name="theme-color" content="#FFF8FA">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -55,13 +56,54 @@
         <div class="post-meta" style="justify-content:center">
           <span class="post-cat post-hero-cat">随笔</span>
           <span class="post-hero-date font-latin"></span>
+          <span class="post-hero-time font-latin"></span>
         </div>
         <h1 class="post-hero-title">加载中…</h1>
         <div class="post-hero-tags" style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"></div>
       </article>
 
+      <!-- 目录 -->
+      <div class="toc-card reveal" id="toc-box" style="display:none"></div>
+
       <!-- 文章正文 -->
       <article class="post-body" aria-live="polite"></article>
+
+      <!-- 评论区（giscus） -->
+      <section class="giscus-card" aria-labelledby="giscus-title">
+        <h2 id="giscus-title" class="giscus-title">评论</h2>
+        <div id="giscus-box">
+          <p class="giscus-note">评论功能待配置：推送到 GitHub 并开启仓库 Discussions 后，在 blog/post.html 中填入 repoId 与 categoryId。</p>
+        </div>
+      </section>
+      <script>
+        var GISCUS = {
+          repo: 'yhanw/yhanw.github.io',
+          repoId: '',      /* ✏️ 填入仓库 ID（开启 Discussions 后获取） */
+          category: 'Announcements',
+          categoryId: '',  /* ✏️ 填入分类 ID */
+          mapping: 'pathname'
+        };
+        if (GISCUS.repoId && GISCUS.categoryId) {
+          var giscusBox = document.getElementById('giscus-box');
+          giscusBox.innerHTML = '';
+          var s = document.createElement('script');
+          s.src = 'https://giscus.app/client.js';
+          s.setAttribute('data-repo', GISCUS.repo);
+          s.setAttribute('data-repo-id', GISCUS.repoId);
+          s.setAttribute('data-category', GISCUS.category);
+          s.setAttribute('data-category-id', GISCUS.categoryId);
+          s.setAttribute('data-mapping', GISCUS.mapping);
+          s.setAttribute('data-strict', '0');
+          s.setAttribute('data-reactions-enabled', '1');
+          s.setAttribute('data-emit-metadata', '0');
+          s.setAttribute('data-input-position', 'bottom');
+          s.setAttribute('data-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+          s.setAttribute('data-lang', 'zh-CN');
+          s.setAttribute('crossorigin', 'anonymous');
+          s.async = true;
+          giscusBox.appendChild(s);
+        }
+      </script>
 
       <!-- 上一篇 / 下一篇 -->
       <nav class="post-nav" aria-label="文章导航">
@@ -87,7 +129,7 @@
       <a href="https://space.bilibili.com/1573860622" target="_blank" rel="noopener">Bilibili</a>
     </nav>
     <p class="footer-copy">
-      © <span data-year>2025</span> yhw · 访问 <span id="busuanzi_value_site_pv"></span> · 访客 <span id="busuanzi_value_site_uv"></span>
+      © <span data-year>2025</span> yhw · 访问 <span id="busuanzi_value_site_pv"></span> · 访客 <span id="busuanzi_value_site_uv"></span> · 已运行 <span id="site-days"></span> 天
     </p>
   </footer>
 

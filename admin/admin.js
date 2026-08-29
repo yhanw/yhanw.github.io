@@ -253,6 +253,30 @@
   }
 
   /* ---------- 保存 / 删除 ---------- */
+  function buildFeed(posts) {
+    var base = 'https://yhanw.github.io';
+    var items = posts.filter(function (p) { return !p.draft; })
+      .sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); })
+      .map(function (p) {
+        var d = new Date(p.date + 'T00:00:00Z');
+        return '<item>' +
+          '<title>' + esc(p.title) + '</title>' +
+          '<link>' + base + '/blog/post.html?id=' + encodeURIComponent(p.id) + '</link>' +
+          '<guid isPermaLink="false">' + esc(p.id) + '</guid>' +
+          '<pubDate>' + (isNaN(d.getTime()) ? '' : d.toUTCString()) + '</pubDate>' +
+          '<description>' + esc(p.summary || '') + '</description>' +
+          '</item>';
+      }).join('');
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' +
+      '<rss version="2.0"><channel>' +
+      '<title>yhw 的博客</title>' +
+      '<link>' + base + '/blog/index.html</link>' +
+      '<description>开发、音游与日常记录。</description>' +
+      '<language>zh-CN</language>' +
+      items +
+      '</channel></rss>';
+  }
+
   function validate() {
     var id = $('f-id').value.trim();
     var title = $('f-title').value.trim();
@@ -305,6 +329,9 @@
         return putFile(DATA_PATH, JSON.stringify({ posts: posts }, null, 2) + '\n', 'blog: 更新索引（' + title + '）');
       })
       .then(function () {
+        return putFile('blog/feed.xml', buildFeed(posts), 'blog: 更新 RSS（' + title + '）');
+      })
+      .then(function () {
         toast(meta.draft ? '已保存为草稿 🌙' : '发布成功！✨');
         $('btn-save').disabled = false;
         $('btn-save').textContent = '💾 保存并发布';
@@ -328,6 +355,9 @@
       .then(function () {
         posts = posts.filter(function (p) { return p.id !== id; });
         return putFile(DATA_PATH, JSON.stringify({ posts: posts }, null, 2) + '\n', 'blog: 删除 ' + id);
+      })
+      .then(function () {
+        return putFile('blog/feed.xml', buildFeed(posts), 'blog: 更新 RSS（删除 ' + id + '）');
       })
       .then(function () {
         toast('已删除 🗑️');

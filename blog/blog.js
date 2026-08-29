@@ -298,6 +298,32 @@
           return r.text();
         }).then(function (md) {
           body.innerHTML = renderMarkdown(md);
+
+          /* 阅读时间（中文约 400 字/分钟） */
+          var plain = md.replace(/```[\s\S]*?```/g, '').replace(/[#>*`_\-\[\]()!]/g, ' ').replace(/\s/g, '');
+          var minutes = Math.max(1, Math.round(plain.length / 400));
+          var timeEl = hero.querySelector('.post-hero-time');
+          if (timeEl) timeEl.textContent = '约 ' + minutes + ' 分钟';
+
+          /* 目录：为 h2/h3 生成锚点 */
+          var heads = body.querySelectorAll('h2, h3');
+          var toc = [];
+          heads.forEach(function (h, i) {
+            h.id = 'sec-' + (i + 1);
+            toc.push({ id: h.id, lv: h.tagName === 'H2' ? 1 : 2, text: h.textContent.trim() });
+          });
+          var tocBox = document.getElementById('toc-box');
+          if (tocBox) {
+            if (toc.length >= 2) {
+              tocBox.style.display = 'block';
+              tocBox.innerHTML = '<div class="toc-title">目录</div><ul>' +
+                toc.map(function (t) {
+                  return '<li class="lv' + t.lv + '"><a href="#' + t.id + '">' + escapeHtml(t.text) + '</a></li>';
+                }).join('') + '</ul>';
+            } else {
+              tocBox.style.display = 'none';
+            }
+          }
         });
       })
       .catch(function () {

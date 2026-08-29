@@ -7,6 +7,17 @@
   /* ---------- 明暗主题（Material You） ---------- */
   function applyTheme(t) {
     document.documentElement.classList.toggle('dark', t === 'dark');
+    var tc = document.querySelector('meta[name="theme-color"]');
+    if (tc) tc.setAttribute('content', t === 'dark' ? '#171216' : '#FFF8FA');
+    /* giscus 评论区主题同步 */
+    var iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      try {
+        iframe.contentWindow.postMessage({
+          giscus: { setConfig: { theme: t === 'dark' ? 'dark' : 'light' } }
+        }, 'https://giscus.app');
+      } catch (e) { /* 忽略 */ }
+    }
   }
   function initTheme() {
     var saved = null;
@@ -145,6 +156,13 @@
   /* ---------- 页脚年份 ---------- */
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---------- 网站运行天数 ---------- */
+  var launchDate = new Date('2026-08-29'); /* ✏️ 网站正式上线日期 */
+  var daysEl = document.getElementById('site-days');
+  if (daysEl && !isNaN(launchDate.getTime())) {
+    daysEl.textContent = Math.max(1, Math.floor((Date.now() - launchDate.getTime()) / 86400000));
+  }
 
   /* ---------- GitHub 项目 ---------- */
   var ghBox = document.getElementById('gh-projects');
