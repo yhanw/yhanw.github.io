@@ -104,28 +104,11 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
 body {
   font-family: var(--font-body);
   color: var(--ink);
-  background:
-    radial-gradient(900px 520px at 12% -4%, var(--pink-soft) 0%, transparent 60%),
-    radial-gradient(800px 500px at 96% 12%, var(--sky-soft) 0%, transparent 55%),
-    radial-gradient(900px 600px at 88% 68%, var(--lilac-soft) 0%, transparent 55%),
-    radial-gradient(700px 500px at 6% 78%, var(--mint-soft) 0%, transparent 55%),
-    var(--cream);
-  background-attachment: fixed;
+  background: var(--cream);
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.8;
   transition: color .3s ease;
-}
-
-/* 波点纹理（很淡） */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(var(--dots) 1.2px, transparent 1.2px);
-  background-size: 26px 26px;
-  z-index: 0;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -846,8 +829,8 @@ html.dark .theme-toggle .icon-sun { display: block; }
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.95);
 }
-.oa-minori { background: linear-gradient(135deg, #FFDCEB, #FF6FA5); border-color: #FF6FA5; }
-.oa-shizuku { background: linear-gradient(135deg, #D6F1FF, #7AD8FF); border-color: #7AD8FF; }
+.oa-minori { background: linear-gradient(135deg, #FFE3D1, #FFCCAA); border-color: #FFCCAA; }
+.oa-shizuku { background: linear-gradient(135deg, #D8F7F0, #99EEDD); border-color: #99EEDD; }
 .oa-tae { background: linear-gradient(135deg, #D3E9FF, #2E9BFF); border-color: #2E9BFF; }
 .oa-sayo { background: linear-gradient(135deg, #E4D9F9, #8C5BE1); border-color: #8C5BE1; }
 .oa-kokoro { background: linear-gradient(135deg, #FFE7CC, #FF8F2C); border-color: #FF8F2C; }
