@@ -532,7 +532,7 @@ ul { list-style: none; }
 .social-btn:hover { transform: translateY(-4px) rotate(-6deg); color: #fff; }
 .social-btn.gh { background: linear-gradient(135deg, var(--ink), #6d5b8a); border-color: transparent; color: #fff; }
 .social-btn.mail { background: linear-gradient(135deg, var(--pink), var(--lilac)); border-color: transparent; color: #fff; }
-.social-btn.qq { background: linear-gradient(135deg, var(--sky), var(--mint)); border-color: transparent; color: #fff; }
+.social-btn.bl { background: linear-gradient(135deg, var(--sky), var(--mint)); border-color: transparent; color: #fff; }
 
 .about-body h3 {
   font-family: var(--font-display);
