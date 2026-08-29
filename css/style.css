@@ -779,7 +779,8 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .project-body h3 a:hover { color: var(--pink-deep); }
 
 /* ---------- 友链 ---------- */
-.friends-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; position: relative; z-index: 1; }
+.friends-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; position: relative; z-index: 1; }
+.friends-grid:has(.friend-card:only-child) { max-width: 420px; }
 .friend-card {
   background: var(--card);
   border: 2px solid var(--line);
