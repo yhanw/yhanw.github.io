@@ -10,13 +10,13 @@
   --cream: #FFF8FA;          /* surface */
   --card: #FFFFFF;           /* surface-container-lowest（卡片） */
   --card-2: #F7EDF2;         /* surface-container（面板衬底） */
-  --pink: #9A4A7C;           /* primary */
+  --pink: #3A6BC4;           /* primary（蓝） */
   --on-primary: #FFFFFF;
-  --pink-deep: #3B0A2E;      /* on-primary-container */
-  --pink-soft: #FFD9EC;      /* primary-container */
-  --lilac: #7D5260;          /* secondary */
-  --lilac-deep: #432A33;     /* on-secondary-container */
-  --lilac-soft: #FFD9E2;     /* secondary-container */
+  --pink-deep: #002B66;      /* on-primary-container */
+  --pink-soft: #D8E5FF;      /* primary-container */
+  --lilac: #5A6072;          /* secondary */
+  --lilac-deep: #141C2C;     /* on-secondary-container */
+  --lilac-soft: #DFE4F9;     /* secondary-container */
   --mint: #4C9A83;
   --mint-deep: #2E6B59;
   --mint-soft: #D5F0E6;
@@ -35,7 +35,7 @@
   --nav-bg: rgba(255, 248, 250, 0.85);
   --card-shine: rgba(255, 255, 255, 0.9);
   --bar-bg: #F1E4EC;
-  --dots: rgba(157, 74, 124, 0.08);
+  --dots: rgba(58, 107, 196, 0.08);
   --stage-shadow: var(--stage-shadow);
 
   /* 字体（Mizuki：思源宋体标题 + 思源黑体正文） */
@@ -48,9 +48,9 @@
   --r-md: 16px;
   --r-sm: 12px;
   --shadow-soft: 0 1px 2px rgba(32, 26, 30, 0.05), 0 4px 16px rgba(32, 26, 30, 0.08);
-  --shadow-pink: 0 6px 20px rgba(154, 74, 124, 0.22);
+  --shadow-pink: 0 6px 20px rgba(58, 107, 196, 0.22);
   --shadow-mint: 0 6px 20px rgba(76, 154, 131, 0.20);
-  --shadow-lilac: 0 6px 20px rgba(125, 82, 96, 0.20);
+  --shadow-lilac: 0 6px 20px rgba(90, 96, 114, 0.20);
 
   --nav-h: 68px;
   --container: 1100px;
@@ -63,13 +63,13 @@ html.dark {
   --cream: #171216;
   --card: #221C20;
   --card-2: #2A2226;
-  --pink: #FFB1D8;
-  --on-primary: #5E1139;
-  --pink-deep: #FFD9EC;
-  --pink-soft: #7C2D57;
-  --lilac: #E6B9C8;
-  --lilac-deep: #FFD9E2;
-  --lilac-soft: #5B4049;
+  --pink: #A9C7FF;
+  --on-primary: #002E66;
+  --pink-deep: #D8E5FF;
+  --pink-soft: #2E4F92;
+  --lilac: #C1C8DE;
+  --lilac-deep: #DFE4F9;
+  --lilac-soft: #3A4256;
   --mint: #8FD3BC;
   --mint-deep: #D5F0E6;
   --mint-soft: #2F5245;
@@ -87,7 +87,7 @@ html.dark {
   --nav-bg: rgba(34, 28, 32, 0.85);
   --card-shine: rgba(255, 255, 255, 0.04);
   --bar-bg: #3A3138;
-  --dots: rgba(255, 177, 216, 0.07);
+  --dots: rgba(169, 199, 255, 0.07);
   --stage-shadow: rgba(0, 0, 0, 0.5);
 
   --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 20px rgba(0, 0, 0, 0.4);
@@ -197,6 +197,23 @@ ul { list-style: none; }
   letter-spacing: 0.5px;
 }
 .nav-brand .mascot { width: 34px; height: 34px; }
+
+/* 品牌 y 字标 */
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4C7FD4, #2E5596);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(46, 85, 150, 0.35);
+}
 
 .nav-links {
   display: flex;
@@ -374,12 +391,7 @@ html.dark .theme-toggle .icon-sun { display: block; }
   padding: 70px 0 40px;
   position: relative;
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 40px;
-}
+.hero-grid { text-align: center; }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -427,9 +439,9 @@ html.dark .theme-toggle .icon-sun { display: block; }
   margin-top: 8px;
 }
 .hero-rotate .jp { color: var(--ink-faint); font-size: 0.85em; margin-left: 6px; font-family: var(--font-body); }
-.hero-desc { color: var(--ink-soft); margin: 14px 0 30px; max-width: 480px; font-size: 1.02rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; animation: pop-in .7s .25s cubic-bezier(.2, 1.4, .4, 1) both; }
-.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; animation: pop-in .7s .35s cubic-bezier(.2, 1.4, .4, 1) both; }
+.hero-desc { color: var(--ink-soft); margin: 14px auto 30px; max-width: 480px; font-size: 1.02rem; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; animation: pop-in .7s .25s cubic-bezier(.2, 1.4, .4, 1) both; }
+.hero-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; animation: pop-in .7s .35s cubic-bezier(.2, 1.4, .4, 1) both; }
 
 .chip {
   display: inline-flex;
@@ -588,7 +600,21 @@ html.dark .theme-toggle .icon-sun { display: block; }
 /* ---------- 关于我 ---------- */
 .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; position: relative; z-index: 1; }
 .about-avatar { text-align: center; }
-.about-avatar .mascot { width: 200px; height: 200px; margin-inline: auto; animation: float 5s ease-in-out infinite; }
+.avatar-y {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4C7FD4, #2E5596);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(46, 85, 150, 0.35);
+}
 .about-name { font-family: var(--font-display); font-size: 1.6rem; margin-top: 14px; }
 .about-tagline { color: var(--ink-soft); font-size: 0.95rem; margin-top: 4px; }
 .about-social { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
@@ -608,30 +634,6 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .social-btn.gh { background: linear-gradient(135deg, var(--ink), #6d5b8a); border-color: transparent; color: var(--on-primary); }
 .social-btn.mail { background: linear-gradient(135deg, var(--pink), var(--lilac)); border-color: transparent; color: var(--on-primary); }
 .social-btn.bl { background: linear-gradient(135deg, var(--sky), var(--mint)); border-color: transparent; color: var(--on-primary); }
-
-/* 左侧 logo 墙 */
-.about-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 18px; }
-.logo-tile {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(70, 57, 90, 0.14);
-  transition: transform .2s ease;
-}
-.logo-tile:hover { transform: translateY(-3px) scale(1.08); }
-.logo-tile svg { width: 22px; height: 22px; }
-.lt-win { background: #0078D4; }
-.lt-gen { background: #54487A; }
-.lt-sdvx { background: #6B4EFF; }
-.lt-ongeki { background: #FF7F3F; }
-.lt-bd { background: #E5006D; }
-.lt-pjsk { background: #00A8B5; }
-.lt-delta { background: #2A2F45; }
-.lt-limbus { background: #2E2E38; }
-.lt-ark { background: #22283B; }
 
 .about-body h3 {
   font-family: var(--font-display);
@@ -959,7 +961,7 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .contact-card::before { top: -30px; left: 4%; transform: rotate(-15deg); }
 .contact-card::after { bottom: -40px; right: 5%; transform: rotate(12deg); animation-delay: 1.4s; }
 .contact-card h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); }
-html.dark .contact-card { background: linear-gradient(135deg, #7C2D57, #4A3440); }
+html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A); }
 .contact-card .contact-sub { opacity: .92; margin: 12px auto 32px; max-width: 420px; font-size: 1rem; }
 .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .btn-white {
@@ -1059,6 +1061,7 @@ html.dark .contact-card { background: linear-gradient(135deg, #7C2D57, #4A3440);
   background: linear-gradient(120deg, var(--pink-soft), var(--lilac-soft));
 }
 .id-avatar { position: relative; width: 128px; height: 128px; margin: 6px auto 16px; }
+.id-avatar .avatar-y { width: 128px; height: 128px; font-size: 4.2rem; margin: 0; box-shadow: none; }
 .id-avatar .mascot { width: 128px; height: 128px; animation: float 4.5s ease-in-out infinite; }
 .id-avatar .ring {
   position: absolute;
@@ -1324,11 +1327,14 @@ html.dark .contact-card { background: linear-gradient(135deg, #7C2D57, #4A3440);
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--pink-soft), var(--lilac-soft));
+  background: linear-gradient(135deg, #4C7FD4, #2E5596);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   flex-shrink: 0;
 }
 .widget-about b { font-size: 1rem; }

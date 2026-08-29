@@ -123,23 +123,6 @@
     gObs.observe(gaugeArc);
   }
 
-  /* ---------- 吉祥物眨眼 ---------- */
-  var mascots = document.querySelectorAll('.mascot-hero, .id-avatar .mascot, .footer .mascot');
-  if (mascots.length && !prefersReduced) {
-    function scheduleBlink() {
-      var delay = 2600 + Math.random() * 3400;
-      setTimeout(function () {
-        mascots.forEach(function (m) {
-          m.classList.remove('is-blinking');
-          void m.offsetWidth; /* 重启动画 */
-          m.classList.add('is-blinking');
-        });
-        scheduleBlink();
-      }, delay);
-    }
-    scheduleBlink();
-  }
-
   /* ---------- Hero 词语轮换 ---------- */
   var rotateEl = document.querySelector('.hero-rotate');
   if (rotateEl) {
