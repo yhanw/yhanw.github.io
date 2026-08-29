@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 管理后台不需要收录
+Disallow: /admin/
+
+Sitemap: https://yhanw.github.io/sitemap.xml

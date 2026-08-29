@@ -92,9 +92,11 @@
     var grid = document.querySelector('.blog-grid');
     var empty = document.querySelector('.blog-empty');
     var catBar = document.querySelector('.cat-bar');
+    var searchBox = document.getElementById('blog-search');
     if (!grid || !empty) return;
 
     var allPosts = [];
+    var currentCat = '';
 
     function showEmpty(msg) {
       grid.style.display = 'none';
@@ -121,7 +123,24 @@
           '<span class="post-more">阅读全文 →</span>';
         grid.appendChild(card);
       });
-      if (!posts.length) showEmpty('还没有文章。');
+      if (!posts.length) {
+        var searching = searchBox && searchBox.value.trim();
+        showEmpty(searching ? '没有找到相关文章。' : '还没有文章。');
+      }
+    }
+
+    function filterPosts() {
+      var q = searchBox ? searchBox.value.trim().toLowerCase() : '';
+      var list = allPosts;
+      if (currentCat) list = list.filter(function (p) { return catOf(p) === currentCat; });
+      if (q) {
+        list = list.filter(function (p) {
+          return (p.title || '').toLowerCase().indexOf(q) >= 0 ||
+                 (p.summary || '').toLowerCase().indexOf(q) >= 0 ||
+                 (p.tags || []).some(function (t) { return t.toLowerCase().indexOf(q) >= 0; });
+        });
+      }
+      renderList(list);
     }
 
     function catOf(p) { return p.category || '随笔'; }
@@ -136,6 +155,7 @@
     }
 
     function selectCat(cat) {
+      currentCat = cat;
       catBar.querySelectorAll('.cat-btn').forEach(function (b) {
         b.classList.toggle('is-active', (b.dataset.cat || '') === cat);
       });
@@ -145,7 +165,7 @@
           b.classList.toggle('is-active', (b.dataset.cat || '') === cat);
         });
       }
-      renderList(cat ? allPosts.filter(function (p) { return catOf(p) === cat; }) : allPosts);
+      filterPosts();
     }
 
     function renderCats(posts) {
@@ -205,6 +225,10 @@
           return '<div class="arch"><span>' + y + '</span><span class="cnt">' + yearM[y] + ' 篇</span></div>';
         }).join('') || '<span class="widget-empty">暂无归档</span>';
       }
+    }
+
+    if (searchBox) {
+      searchBox.addEventListener('input', filterPosts);
     }
 
     fetch(DATA_URL)

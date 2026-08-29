@@ -626,6 +626,22 @@ html.dark .theme-toggle .icon-sun { display: block; }
 }
 .about-body p { color: var(--ink-soft); margin-bottom: 14px; font-size: 1rem; }
 .about-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-faint); margin: 18px 0 10px; letter-spacing: 1px; }
+
+/* GitHub 贡献图 */
+.gh-chart { margin-top: 28px; position: relative; z-index: 1; }
+.gh-chart img {
+  width: 100%;
+  border-radius: var(--r-md);
+  border: 2px solid var(--line);
+  background: #fff;
+  padding: 10px;
+  box-shadow: var(--shadow-soft);
+}
+.gh-chart .about-label { margin-top: 0; }
+
+/* 博客搜索框 */
+.blog-search { max-width: 420px; margin: 0 auto 20px; position: relative; z-index: 1; }
+.blog-search .input { border-radius: 999px; padding: 12px 22px; }
 .about-body .hl { color: var(--pink-deep); font-weight: 700; }
 .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .about-stats {
