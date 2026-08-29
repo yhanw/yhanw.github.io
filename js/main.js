@@ -4,6 +4,29 @@
 (function () {
   'use strict';
 
+  /* ---------- 明暗主题（Material You） ---------- */
+  function applyTheme(t) {
+    document.documentElement.classList.toggle('dark', t === 'dark');
+  }
+  function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) { /* 隐私模式忽略 */ }
+    if (!saved) {
+      saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    applyTheme(saved);
+  }
+  initTheme();
+  var themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var dark = document.documentElement.classList.contains('dark');
+      var next = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', next); } catch (e) { /* 忽略 */ }
+      applyTheme(next);
+    });
+  }
+
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- 移动端导航 ---------- */

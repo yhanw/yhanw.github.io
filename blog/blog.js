@@ -124,22 +124,42 @@
       if (!posts.length) showEmpty('还没有文章。');
     }
 
+    function catOf(p) { return p.category || '随笔'; }
+
+    function countBy(posts, fn) {
+      var m = {};
+      posts.forEach(function (p) {
+        var k = fn(p);
+        m[k] = (m[k] || 0) + 1;
+      });
+      return m;
+    }
+
+    function selectCat(cat) {
+      catBar.querySelectorAll('.cat-btn').forEach(function (b) {
+        b.classList.toggle('is-active', (b.dataset.cat || '') === cat);
+      });
+      var sideCats = document.getElementById('widget-cats');
+      if (sideCats) {
+        sideCats.querySelectorAll('button').forEach(function (b) {
+          b.classList.toggle('is-active', (b.dataset.cat || '') === cat);
+        });
+      }
+      renderList(cat ? allPosts.filter(function (p) { return catOf(p) === cat; }) : allPosts);
+    }
+
     function renderCats(posts) {
       if (!catBar) return;
-      var cats = [];
-      posts.forEach(function (p) {
-        var c = p.category || '随笔';
-        if (cats.indexOf(c) < 0) cats.push(c);
-      });
+      var catM = countBy(posts, catOf);
       var frag = document.createDocumentFragment();
       var all = document.createElement('button');
       all.className = 'cat-btn is-active';
-      all.textContent = '全部';
+      all.innerHTML = '全部 <span class="cnt">' + posts.length + '</span>';
       frag.appendChild(all);
-      cats.forEach(function (c) {
+      Object.keys(catM).sort().forEach(function (c) {
         var b = document.createElement('button');
         b.className = 'cat-btn';
-        b.textContent = c;
+        b.innerHTML = escapeHtml(c) + ' <span class="cnt">' + catM[c] + '</span>';
         b.dataset.cat = c;
         frag.appendChild(b);
       });
@@ -147,11 +167,44 @@
       catBar.addEventListener('click', function (e) {
         var btn = e.target.closest('.cat-btn');
         if (!btn) return;
-        catBar.querySelectorAll('.cat-btn').forEach(function (b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        var cat = btn.dataset.cat;
-        renderList(cat ? allPosts.filter(function (p) { return (p.category || '随笔') === cat; }) : allPosts);
+        selectCat(btn.dataset.cat || '');
       });
+    }
+
+    /* 侧边栏 widgets：分类 / 标签 / 归档 */
+    function renderSidebar(posts) {
+      var catsBox = document.getElementById('widget-cats');
+      var tagsBox = document.getElementById('widget-tags');
+      var archBox = document.getElementById('widget-archives');
+      var catM = countBy(posts, catOf);
+      var tagM = {};
+      var yearM = {};
+      posts.forEach(function (p) {
+        (p.tags || []).forEach(function (t) { tagM[t] = (tagM[t] || 0) + 1; });
+        var y = String(p.date || '').slice(0, 4);
+        if (y) yearM[y] = (yearM[y] || 0) + 1;
+      });
+
+      if (catsBox) {
+        catsBox.innerHTML = Object.keys(catM).sort().map(function (c) {
+          return '<button data-cat="' + escapeHtml(c) + '"><span>' + escapeHtml(c) + '</span><span class="cnt">' + catM[c] + '</span></button>';
+        }).join('') || '<span class="widget-empty">暂无分类</span>';
+        catsBox.addEventListener('click', function (e) {
+          var btn = e.target.closest('button');
+          if (!btn) return;
+          selectCat(btn.dataset.cat || '');
+        });
+      }
+      if (tagsBox) {
+        tagsBox.innerHTML = Object.keys(tagM).sort().map(function (t) {
+          return '<span>#' + escapeHtml(t) + '</span>';
+        }).join('') || '<span class="widget-empty">暂无标签</span>';
+      }
+      if (archBox) {
+        archBox.innerHTML = Object.keys(yearM).sort().reverse().map(function (y) {
+          return '<div class="arch"><span>' + y + '</span><span class="cnt">' + yearM[y] + ' 篇</span></div>';
+        }).join('') || '<span class="widget-empty">暂无归档</span>';
+      }
     }
 
     fetch(DATA_URL)
@@ -160,6 +213,7 @@
         allPosts = (data.posts || []).filter(function (p) { return !p.draft; })
           .sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
         renderCats(allPosts);
+        renderSidebar(allPosts);
         renderList(allPosts);
       })
       .catch(function () {
