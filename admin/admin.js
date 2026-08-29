@@ -1,5 +1,5 @@
 /* ============================================================
-   yhanw の小宇宙 ✨ — 管理后台（GitHub Contents API）
+   yhanw · 个人主页 — 管理后台（GitHub Contents API）
    ============================================================ */
 (function () {
   'use strict';
@@ -120,7 +120,7 @@
     var box = $('post-list');
     $('repo-label').textContent = repo + ' · 共 ' + posts.length + ' 篇';
     if (!posts.length) {
-      box.innerHTML = '<div class="admin-loading">还没有文章，点击右上角「写新文章」开张吧 ✍️</div>';
+      box.innerHTML = '<div class="admin-loading">还没有文章，点击「写新文章」发布第一篇。</div>';
       return;
     }
     box.innerHTML = '';

@@ -1,6 +1,5 @@
 /* ============================================================
-   yhanw の小宇宙 ✨ — 个人主页样式
-   风格：日系萌感 · 糖果色 · 圆角 · きらり（闪耀）
+   yhanw · 个人主页 — 样式
    ============================================================ */
 
 /* ---------- 设计 token ---------- */
@@ -1026,7 +1025,7 @@ ul { list-style: none; }
 .attr-row:nth-child(4) .attr-fill { background: linear-gradient(90deg, var(--lilac), var(--mint)); }
 .attr-row:nth-child(5) .attr-fill { background: linear-gradient(90deg, var(--sky), var(--lilac)); }
 
-/* 好感度 */
+/* 环形仪表（已弃用） */
 .gauge-wrap { text-align: center; padding: 10px 0; }
 .gauge {
   width: 210px;

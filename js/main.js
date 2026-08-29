@@ -1,5 +1,5 @@
 /* ============================================================
-   yhanw の小宇宙 ✨ — 交互脚本
+   yhanw · 个人主页 — 交互脚本
    ============================================================ */
 (function () {
   'use strict';
@@ -135,35 +135,6 @@
       }, prefersReduced ? 8000 : 2800);
     }
   }
-
-  /* ---------- 点击星光 ---------- */
-  var SPARK_COLORS = ['#FF7BA9', '#A78BFA', '#52D9AC', '#FFC94D', '#6FC7FF'];
-  function sparkPath() {
-    return '<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>';
-  }
-  function burst(x, y) {
-    if (prefersReduced) return;
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < 6; i++) {
-      var s = document.createElement('span');
-      s.className = 'click-spark';
-      s.style.color = SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)];
-      s.style.left = x + 'px';
-      s.style.top = y + 'px';
-      s.style.setProperty('--dx', (Math.random() * 90 - 45).toFixed(0) + 'px');
-      s.style.setProperty('--dy', (Math.random() * 90 - 30).toFixed(0) + 'px');
-      s.style.animationDelay = (Math.random() * 0.12).toFixed(2) + 's';
-      s.innerHTML = sparkPath();
-      frag.appendChild(s);
-    }
-    document.body.appendChild(frag);
-    setTimeout(function () {
-      frag.querySelectorAll('.click-spark').forEach(function (s) { s.remove(); });
-    }, 1200);
-  }
-  document.addEventListener('click', function (e) {
-    burst(e.clientX, e.clientY);
-  });
 
   /* ---------- 页脚年份 ---------- */
   var yearEl = document.querySelector('[data-year]');

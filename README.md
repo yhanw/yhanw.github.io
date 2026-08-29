@@ -1,6 +1,6 @@
-# yhanw の小宇宙 ✨
+# yhanw · 个人主页
 
-个人主页网站 · 日系萌感风格（糖果色 · 圆角 · きらり闪耀）
+个人主页网站（含博客系统与管理后台）。
 
 参考灵感：[kirari.fun](https://kirari.fun)（zyf2007 的个人主页）与其 [AboutMe 仓库](https://github.com/zyf2007/AboutMe)。
 
@@ -9,7 +9,7 @@
 | 页面 | 路径 | 说明 |
 | --- | --- | --- |
 | 主页 | `index.html` | Hero / 关于我 / 推し / 技能 / 项目 / 时间线 / 联系 |
-| 核心档案 | `aboutme/Core/CoreData.html` | 属性面板 / 好感度 / 代表技能 / 名言 / 推し |
+| 核心档案 | `aboutme/Core/CoreData.html` | 档案卡 / 技能 / 技能清单 / 推し |
 | 博客列表 | `blog/index.html` | 文章列表（分类筛选） |
 | 文章阅读 | `blog/post.html?id=xxx` | Markdown 渲染 + 上一篇/下一篇 |
 | 管理后台 | `admin/index.html` | 通过 GitHub API 发布/编辑/删除文章 |

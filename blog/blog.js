@@ -1,5 +1,5 @@
 /* ============================================================
-   yhanw の小宇宙 ✨ — 博客脚本（列表 / 文章 / Markdown 渲染）
+   yhanw · 个人主页 — 博客脚本（列表 / 文章 / Markdown 渲染）
    ============================================================ */
 (function () {
   'use strict';
@@ -121,7 +121,7 @@
           '<span class="post-more">阅读全文 →</span>';
         grid.appendChild(card);
       });
-      if (!posts.length) showEmpty('这里还很安静……等我写下第一篇吧 ✍️');
+      if (!posts.length) showEmpty('还没有文章。');
     }
 
     function renderCats(posts) {
@@ -163,7 +163,7 @@
         renderList(allPosts);
       })
       .catch(function () {
-        showEmpty('博客开小差了……稍后再来看看吧 🐾');
+        showEmpty('加载失败，请稍后再试。');
       });
   }
 
@@ -176,7 +176,7 @@
 
     var params = new URLSearchParams(location.search);
     var id = params.get('id');
-    if (!id) { body.innerHTML = '<p>没有找到这篇文章 🤔</p>'; return; }
+    if (!id) { body.innerHTML = '<p>没有找到这篇文章。</p>'; return; }
 
     fetch(DATA_URL)
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -185,9 +185,9 @@
           .sort(function (a, b) { return String(b.date).localeCompare(String(a.date)); });
         var post = null;
         posts.forEach(function (p) { if (p.id === id) post = p; });
-        if (!post) { body.innerHTML = '<p>这篇文章不存在或已删除 🤔</p>'; return; }
+        if (!post) { body.innerHTML = '<p>这篇文章不存在或已删除。</p>'; return; }
 
-        document.title = post.title + ' · yhanw の小宇宙 ✨';
+        document.title = post.title + ' · yhanw';
         hero.querySelector('.post-hero-cat').textContent = post.category || '随笔';
         hero.querySelector('.post-hero-date').textContent = fmtDate(post.date);
         var tagBox = hero.querySelector('.post-hero-tags');
@@ -223,7 +223,7 @@
         });
       })
       .catch(function () {
-        body.innerHTML = '<p>文章加载失败了……稍后再来试试吧 🐾</p>';
+        body.innerHTML = '<p>文章加载失败，请稍后再试。</p>';
       });
   }
 
