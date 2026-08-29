@@ -164,6 +164,11 @@
     daysEl.textContent = Math.max(1, Math.floor((Date.now() - launchDate.getTime()) / 86400000));
   }
 
+  /* ---------- 本地预览不显示访问统计（localhost 共享计数，数据不准） ---------- */
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+    document.querySelectorAll('.bz-wrap').forEach(function (el) { el.remove(); });
+  }
+
   /* ---------- GitHub 项目 ---------- */
   var ghBox = document.getElementById('gh-projects');
   if (ghBox) {
