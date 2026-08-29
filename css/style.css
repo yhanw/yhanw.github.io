@@ -1510,19 +1510,6 @@ html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A);
 }
 .err-actions { display: flex; justify-content: center; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
 
-/* ---------- 此刻 NOW 状态卡 ---------- */
-.now-card {
-  margin-top: 22px;
-  border: 2px dashed var(--line);
-  border-radius: var(--r-md);
-  padding: 14px 18px;
-  background: var(--card);
-}
-.now-head { font-size: 0.8rem; font-weight: 700; color: var(--ink-faint); letter-spacing: 2px; margin-bottom: 10px; }
-.now-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; font-size: 0.9rem; }
-.now-row span { color: var(--ink-soft); flex-shrink: 0; }
-.now-row b { font-weight: 700; text-align: right; }
-
 /* ---------- 文章页 ---------- */
 .post-hero-card {
   background: var(--card);
