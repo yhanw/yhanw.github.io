@@ -625,6 +625,7 @@ html.dark .theme-toggle .icon-sun { display: block; }
   margin-bottom: 14px;
 }
 .about-body p { color: var(--ink-soft); margin-bottom: 14px; font-size: 1rem; }
+.about-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-faint); margin: 18px 0 10px; letter-spacing: 1px; }
 .about-body .hl { color: var(--pink-deep); font-weight: 700; }
 .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .about-stats {
