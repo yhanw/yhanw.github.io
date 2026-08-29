@@ -634,6 +634,7 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .social-btn.gh { background: linear-gradient(135deg, var(--ink), #6d5b8a); border-color: transparent; color: var(--on-primary); }
 .social-btn.mail { background: linear-gradient(135deg, var(--pink), var(--lilac)); border-color: transparent; color: var(--on-primary); }
 .social-btn.bl { background: linear-gradient(135deg, var(--sky), var(--mint)); border-color: transparent; color: var(--on-primary); }
+.social-btn.st { background: linear-gradient(135deg, #2A475E, #171A21); border-color: transparent; color: #fff; }
 
 .about-body h3 {
   font-family: var(--font-display);
