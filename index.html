@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yhanw ✨ 个人主页 · 小宇宙</title>
+  <meta name="description" content="yhanw 的个人主页：一枚爱折腾的开发者，用代码和好奇心点亮小宇宙。きらり ✨">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1 L14.6 9.4 L23 12 L14.6 14.6 L12 23 L9.4 14.6 L1 12 L9.4 9.4 Z' fill='%23FF7BA9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1; transform: none; } .skill-bar-fill, .attr-fill { width: var(--w, 0); } .gauge .arc { stroke-dashoffset: var(--off, 11.3); }</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- ============ 导航 ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#home" aria-label="yhanw 首页">
+        <svg class="mascot" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><linearGradient id="mgNav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB7CE"/><stop offset="1" stop-color="#FF7BA9"/></linearGradient></defs>
+          <path d="M60 8 L72.9 42.2 L109.5 43.9 L80.9 66.8 L90.6 102.1 L60 82 L29.4 102.1 L39.1 66.8 L10.5 43.9 L47.1 42.2 Z" fill="url(#mgNav)" stroke="url(#mgNav)" stroke-width="13" stroke-linejoin="round"/>
+          <path d="M82 24 L85 31 L92 33 L85 35.5 L82 42.5 L79 35.5 L72 33 L79 31 Z" fill="#fff" opacity="0.8"/>
+          <g class="m-face">
+            <g class="m-eyes">
+              <circle cx="46" cy="57" r="4.6" fill="#46395A"/><circle cx="46" cy="55.4" r="1.6" fill="#fff"/>
+              <circle cx="74" cy="57" r="4.6" fill="#46395A"/><circle cx="74" cy="55.4" r="1.6" fill="#fff"/>
+            </g>
+            <ellipse cx="34" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+            <ellipse cx="86" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+            <path d="M52 68 Q60 75 68 68" fill="none" stroke="#46395A" stroke-width="3.2" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span>yhanw</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#home">首页</a>
+        <a href="#about">关于</a>
+        <a href="#skills">技能</a>
+        <a href="#projects">项目</a>
+        <a href="#timeline">时间线</a>
+        <a href="#contact">联系</a>
+        <a class="nav-cta" href="aboutme/Core/CoreData.html">✨ 核心档案</a>
+      </nav>
+      <button class="nav-burger" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">✦ 个人主页 · PORTFOLIO</span>
+          <h1 class="hero-title">嗨！我是 <span class="grad font-latin">yhanw</span></h1>
+          <p class="hero-rotate">
+            <span data-phrase>把想法变成闪闪发亮的产品 <span class="jp">(きらり ✨)</span></span>
+            <span data-phrase>一枚正在成长的前端开发者 <span class="jp">(フロントエンド)</span></span>
+            <span data-phrase>永远对世界保持好奇 <span class="jp">(がんばれ！)</span></span>
+          </p>
+          <p class="hero-desc">
+            欢迎来到我的小宇宙！这里收藏着我的项目、技能与成长轨迹，
+            还有一颗永远闪闪发亮的好奇心。很高兴认识你～ 👋
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">✨ 看看我的项目</a>
+            <a class="btn btn-ghost" href="#about">认识一下我</a>
+          </div>
+          <div class="hero-chips">
+            <span class="chip chip-pink">💻 前端开发</span>
+            <span class="chip chip-mint">🎨 设计感</span>
+            <span class="chip chip-lilac">⚙️ 折腾党</span>
+            <span class="chip chip-lemon">🍜 干饭王</span>
+            <span class="chip chip-sky">🌙 夜猫子</span>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <svg class="stage-spark s1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>
+          <svg class="stage-spark s2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>
+          <svg class="stage-spark s3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>
+          <svg class="stage-spark s4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>
+
+          <svg class="mascot mascot-hero" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><linearGradient id="mgHero" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB7CE"/><stop offset="1" stop-color="#FF7BA9"/></linearGradient></defs>
+            <path d="M60 8 L72.9 42.2 L109.5 43.9 L80.9 66.8 L90.6 102.1 L60 82 L29.4 102.1 L39.1 66.8 L10.5 43.9 L47.1 42.2 Z" fill="url(#mgHero)" stroke="url(#mgHero)" stroke-width="13" stroke-linejoin="round"/>
+            <path d="M82 24 L85 31 L92 33 L85 35.5 L82 42.5 L79 35.5 L72 33 L79 31 Z" fill="#fff" opacity="0.8"/>
+            <g class="m-face">
+              <g class="m-eyes">
+                <circle cx="46" cy="57" r="4.6" fill="#46395A"/><circle cx="46" cy="55.4" r="1.6" fill="#fff"/>
+                <circle cx="74" cy="57" r="4.6" fill="#46395A"/><circle cx="74" cy="55.4" r="1.6" fill="#fff"/>
+              </g>
+              <ellipse cx="34" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+              <ellipse cx="86" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+              <path d="M52 68 Q60 75 68 68" fill="none" stroke="#46395A" stroke-width="3.2" stroke-linecap="round"/>
+            </g>
+          </svg>
+
+          <div class="stage-badge">きらり<small>KIRARI ✦</small></div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="mouse"></div>
+        SCROLL
+      </div>
+    </section>
+
+    <!-- ============ 跑马灯 ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>HTML</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>CSS</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>JavaScript</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>TypeScript</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--mint)"></i>Vue</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>React</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>Node.js</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>Python</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>Git</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--mint)"></i>Docker</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>摸鱼</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>干饭</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>音乐</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>游戏</span>
+        </div>
+        <div class="marquee-group">
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>HTML</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>CSS</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>JavaScript</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>TypeScript</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--mint)"></i>Vue</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>React</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>Node.js</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>Python</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>Git</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--mint)"></i>Docker</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--pink)"></i>摸鱼</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--sky)"></i>干饭</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lilac)"></i>音乐</span>
+          <span class="marquee-item"><i class="dot" style="background:var(--lemon)"></i>游戏</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 关于我 ============ -->
+    <section class="section-block" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">✦ About</span>
+          <h2 class="section-title">关于我
+            <svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 18 2 33 9 T 63 9 T 93 9 T 120 7" fill="none" stroke="#FFC94D" stroke-width="5" stroke-linecap="round"/></svg>
+          </h2>
+          <p class="section-sub">一个普通但又有点特别的开发者档案</p>
+        </div>
+
+        <div class="panel panel-pink reveal">
+          <svg class="corner-star" style="top:-16px;right:30px;width:30px" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>
+          <div class="about-grid">
+            <div class="about-avatar">
+              <!-- ✏️ 可替换为你的照片 -->
+              <svg class="mascot" viewBox="0 0 120 120" aria-hidden="true">
+                <defs><linearGradient id="mgAbout" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB7CE"/><stop offset="1" stop-color="#FF7BA9"/></linearGradient></defs>
+                <path d="M60 8 L72.9 42.2 L109.5 43.9 L80.9 66.8 L90.6 102.1 L60 82 L29.4 102.1 L39.1 66.8 L10.5 43.9 L47.1 42.2 Z" fill="url(#mgAbout)" stroke="url(#mgAbout)" stroke-width="13" stroke-linejoin="round"/>
+                <path d="M82 24 L85 31 L92 33 L85 35.5 L82 42.5 L79 35.5 L72 33 L79 31 Z" fill="#fff" opacity="0.8"/>
+                <g class="m-face">
+                  <g class="m-eyes">
+                    <circle cx="46" cy="57" r="4.6" fill="#46395A"/><circle cx="46" cy="55.4" r="1.6" fill="#fff"/>
+                    <circle cx="74" cy="57" r="4.6" fill="#46395A"/><circle cx="74" cy="55.4" r="1.6" fill="#fff"/>
+                  </g>
+                  <ellipse cx="34" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+                  <ellipse cx="86" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+                  <path d="M52 68 Q60 75 68 68" fill="none" stroke="#46395A" stroke-width="3.2" stroke-linecap="round"/>
+                </g>
+              </svg>
+              <div class="about-name">yhanw</div>
+              <div class="about-tagline">一枚爱折腾的开发者 ✨</div>
+              <div class="about-social">
+                <!-- ✏️ 替换为你的真实链接 -->
+                <a class="social-btn gh" href="https://github.com/yhanw" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.14c0 .3.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                </a>
+                <a class="social-btn mail" href="mailto:yhanw@example.com" aria-label="邮箱">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+                </a>
+                <a class="social-btn qq" href="#" aria-label="Bilibili">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.8 2.7 20 4.9l-1.7 1.7A8.5 8.5 0 0 1 20.5 12c0 4.7-3.8 8.5-8.5 8.5S3.5 16.7 3.5 12 7.3 3.5 12 3.5c1.6 0 3.2.45 4.5 1.3L18.2 3.1l-1.7-1.7 1.3-1.3ZM9.2 8.1a1.4 1.4 0 0 0-1.4 1.4 1.4 1.4 0 0 0 1.4 1.4 1.4 1.4 0 0 0 1.4-1.4 1.4 1.4 0 0 0-1.4-1.4Zm5.6 0a1.4 1.4 0 0 0-1.4 1.4 1.4 1.4 0 0 0 1.4 1.4 1.4 1.4 0 0 0 1.4-1.4 1.4 1.4 0 0 0-1.4-1.4Zm-5.6 3.2 1.8 1.8 1.8-1.8 1.3 1.3-3.1 3.1-3.1-3.1 1.3-1.3Zm-1.1 4.4h8.4v1.7H8.1v-1.7Z" transform="scale(0.95) translate(0.6 0.6)"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="about-body">
+              <h3>你好呀！👋</h3>
+              <p>
+                我是 <span class="hl">yhanw</span>，一名热爱折腾的开发者。白天写代码，
+                晚上……也在写代码（但会偷偷摸鱼 🐟）。
+              </p>
+              <p>
+                这个主页是我的 <span class="hl">小宇宙</span>：这里收藏着我的项目、技能与成长轨迹，
+                还有一颗永远闪闪发亮的好奇心。きらり ✨
+              </p>
+              <p>
+                如果你也喜欢折腾有趣的东西，欢迎来和我交个朋友！
+              </p>
+              <div class="about-facts">
+                <span class="chip chip-pink">🎮 游戏</span>
+                <span class="chip chip-mint">🎵 音乐</span>
+                <span class="chip chip-lilac">📷 摄影</span>
+                <span class="chip chip-lemon">🌙 熬夜冠军</span>
+                <span class="chip chip-sky">🍜 干饭人</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️ 统计数字可自行修改 -->
+        <div class="about-stats reveal reveal-delay-1">
+          <div class="stat-card">
+            <div class="stat-num font-latin">10K+</div>
+            <div class="stat-label">行代码（示例）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num font-latin">8</div>
+            <div class="stat-label">个小项目（示例）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num font-latin">520</div>
+            <div class="stat-label">杯奶茶（示例）</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 技能 ============ -->
+    <section class="section-block" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">✦ Skills</span>
+          <h2 class="section-title">我的技能
+            <svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 18 2 33 9 T 63 9 T 93 9 T 120 7" fill="none" stroke="#A78BFA" stroke-width="5" stroke-linecap="round"/></svg>
+          </h2>
+          <p class="section-sub">点亮技能树中……持续升级中 🔥</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card ic-pink reveal">
+            <div class="skill-icon">💻</div>
+            <h3>前端开发</h3>
+            <p>把设计变成能交互的页面，是我的快乐源泉。</p>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>HTML / CSS</span><span class="pct">95%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:95%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>JavaScript</span><span class="pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>Vue / React</span><span class="pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:75%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card ic-lilac reveal reveal-delay-1">
+            <div class="skill-icon">⚙️</div>
+            <h3>后端与工具</h3>
+            <p>写脚本、搭接口，让一切自动运转。</p>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>Python</span><span class="pct">80%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:80%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>Node.js</span><span class="pct">70%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:70%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>Git / Docker</span><span class="pct">65%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:65%"></div></div>
+            </div>
+          </article>
+
+          <article class="skill-card ic-mint reveal reveal-delay-2">
+            <div class="skill-icon">🎨</div>
+            <h3>创作与设计</h3>
+            <p>好看的东西会发光，我想做发光的作品。</p>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>设计感</span><span class="pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:85%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>写作</span><span class="pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:75%"></div></div>
+            </div>
+            <div class="skill-bar-row">
+              <div class="skill-bar-top"><span>视频剪辑</span><span class="pct">60%</span></div>
+              <div class="skill-bar"><div class="skill-bar-fill" style="--w:60%"></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 项目 ============ -->
+    <section class="section-block" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">✦ Projects</span>
+          <h2 class="section-title">我的项目
+            <svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 18 2 33 9 T 63 9 T 93 9 T 120 7" fill="none" stroke="#52D9AC" stroke-width="5" stroke-linecap="round"/></svg>
+          </h2>
+          <p class="section-sub">一些折腾出来的小东西（以下为示例，等待你填入真实项目 🚧）</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- ✏️ 项目卡片：修改标题、描述、标签与链接 -->
+          <article class="project-card reveal">
+            <div class="project-cover pc-pink">🛠️</div>
+            <div class="project-body">
+              <h3>ChatKit 小助手</h3>
+              <div class="proj-tag">示例项目 · 灵感来自 ChatAPI</div>
+              <p>一个基于大模型 API 的聊天小工具，把 AI 装进你的日常对话里。</p>
+              <div class="project-tags"><span>Python</span><span>API</span><span>聊天</span></div>
+              <div class="project-links">
+                <a href="#" onclick="return false;">查看源码 ↗</a>
+                <a href="#" onclick="return false;">在线体验 ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-cover pc-lilac">✨</div>
+            <div class="project-body">
+              <h3>星灵相册</h3>
+              <div class="proj-tag">示例项目</div>
+              <p>自动整理照片、生成可爱封面的小工具，让回忆闪闪发光。</p>
+              <div class="project-tags"><span>Python</span><span>PIL</span><span>自动化</span></div>
+              <div class="project-links">
+                <a href="#" onclick="return false;">查看源码 ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-cover pc-mint">🧩</div>
+            <div class="project-body">
+              <h3>摸鱼小组件</h3>
+              <div class="proj-tag">示例项目</div>
+              <p>桌面端摸鱼倒计时小组件，工作再忙也要记得休息（不是）。</p>
+              <div class="project-tags"><span>Electron</span><span>桌面端</span></div>
+              <div class="project-links">
+                <a href="#" onclick="return false;">查看源码 ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-cover pc-lemon">🎮</div>
+            <div class="project-body">
+              <h3>像素小游戏</h3>
+              <div class="proj-tag">示例项目</div>
+              <p>浏览器里的像素风小游戏，用 Canvas 画出一个迷你世界。</p>
+              <div class="project-tags"><span>Canvas</span><span>JavaScript</span><span>游戏</span></div>
+              <div class="project-links">
+                <a href="#" onclick="return false;">试玩一下 ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-more reveal">
+          <a class="btn btn-ghost" href="https://github.com/yhanw" target="_blank" rel="noopener">去 GitHub 看更多 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 时间线 ============ -->
+    <section class="section-block" id="timeline">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">✦ Timeline</span>
+          <h2 class="section-title">成长时间线
+            <svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 18 2 33 9 T 63 9 T 93 9 T 120 7" fill="none" stroke="#FF7BA9" stroke-width="5" stroke-linecap="round"/></svg>
+          </h2>
+          <p class="section-sub">一路走来的小脚印（示例，可修改成你的故事）</p>
+        </div>
+
+        <div class="timeline">
+          <!-- ✏️ 时间线条目：年份、标题、描述 -->
+          <div class="tl-item reveal">
+            <div class="tl-dot">🌱</div>
+            <div class="tl-card">
+              <div class="tl-year font-latin">2020</div>
+              <h3>初识代码</h3>
+              <p>写下了人生第一个 Hello World，从此打开新世界的大门。</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot">💻</div>
+            <div class="tl-card">
+              <div class="tl-year font-latin">2021</div>
+              <h3>沉迷前端</h3>
+              <p>学会 HTML / CSS / JS，做出了第一个网页——丑，但快乐。</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot">🛠️</div>
+            <div class="tl-card">
+              <div class="tl-year font-latin">2023</div>
+              <h3>开始折腾</h3>
+              <p>尝试各种小项目，从脚本到工具，从后端到前端，乐此不疲。</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot">✨</div>
+            <div class="tl-card">
+              <div class="tl-year font-latin">2025</div>
+              <h3>小宇宙上线</h3>
+              <p>这个主页诞生了！未来还会有更多好玩的事，敬请期待～</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 联系 ============ -->
+    <section class="section-block" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h2>一起做点好玩的事吧！</h2>
+          <p class="contact-sub">无论是项目合作、技术交流，还是单纯想聊聊天，都欢迎来找我～</p>
+          <div class="contact-btns">
+            <a class="btn btn-white" href="https://github.com/yhanw" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.14c0 .3.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+              GitHub
+            </a>
+            <a class="btn btn-glass" href="mailto:yhanw@example.com">✉️ 邮箱联系</a>
+            <a class="btn btn-glass" href="aboutme/Core/CoreData.html">📋 查看核心档案</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <svg class="mascot" viewBox="0 0 120 120" aria-hidden="true">
+      <defs><linearGradient id="mgFoot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB7CE"/><stop offset="1" stop-color="#FF7BA9"/></linearGradient></defs>
+      <path d="M60 8 L72.9 42.2 L109.5 43.9 L80.9 66.8 L90.6 102.1 L60 82 L29.4 102.1 L39.1 66.8 L10.5 43.9 L47.1 42.2 Z" fill="url(#mgFoot)" stroke="url(#mgFoot)" stroke-width="13" stroke-linejoin="round"/>
+      <path d="M82 24 L85 31 L92 33 L85 35.5 L82 42.5 L79 35.5 L72 33 L79 31 Z" fill="#fff" opacity="0.8"/>
+      <g class="m-face">
+        <g class="m-eyes">
+          <circle cx="46" cy="57" r="4.6" fill="#46395A"/><circle cx="46" cy="55.4" r="1.6" fill="#fff"/>
+          <circle cx="74" cy="57" r="4.6" fill="#46395A"/><circle cx="74" cy="55.4" r="1.6" fill="#fff"/>
+        </g>
+        <ellipse cx="34" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+        <ellipse cx="86" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+        <path d="M52 68 Q60 75 68 68" fill="none" stroke="#46395A" stroke-width="3.2" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="footer-brand font-display">yhanw の小宇宙</div>
+    <nav class="footer-links" aria-label="页脚导航">
+      <a href="#home">首页</a>
+      <a href="#about">关于</a>
+      <a href="#projects">项目</a>
+      <a href="aboutme/Core/CoreData.html">核心档案</a>
+      <a href="https://github.com/yhanw" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <p class="footer-copy">
+      © <span data-year>2025</span> yhanw · Made with <span class="jp">きらり</span> ✨
+    </p>
+  </footer>
+
+  <button class="to-top" aria-label="返回顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

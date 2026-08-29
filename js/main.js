@@ -1,0 +1,171 @@
+/* ============================================================
+   yhanw の小宇宙 ✨ — 交互脚本
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.querySelector('.nav-burger');
+  var links = document.querySelector('.nav-links');
+  if (burger && links) {
+    burger.addEventListener('click', function () {
+      var open = links.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ---------- 导航滚动状态 ---------- */
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var onScrollNav = function () {
+      nav.classList.toggle('is-scrolled', window.scrollY > 30);
+    };
+    window.addEventListener('scroll', onScrollNav, { passive: true });
+    onScrollNav();
+  }
+
+  /* ---------- 返回顶部 ---------- */
+  var toTop = document.querySelector('.to-top');
+  if (toTop) {
+    var onScrollTop = function () {
+      toTop.classList.toggle('show', window.scrollY > 480);
+    };
+    window.addEventListener('scroll', onScrollTop, { passive: true });
+    onScrollTop();
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ---------- 滚动显现 + 进度条动画 ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  var barEls = document.querySelectorAll('.skill-bar-fill, .attr-fill');
+  var gaugeArc = document.querySelector('.gauge .arc');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('in');
+
+      /* 进度条：读到 --w 变量后填充 */
+      el.querySelectorAll('.skill-bar-fill, .attr-fill').forEach(function (bar) {
+        var w = bar.dataset.w || bar.style.getPropertyValue('--w');
+        if (w) bar.style.width = w;
+      });
+      if (gaugeArc && el.contains(gaugeArc)) {
+        gaugeArc.style.strokeDashoffset = gaugeArc.dataset.off || '56.5';
+      }
+      io.unobserve(el);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(function (el) { io.observe(el); });
+
+  /* 无需 reveal 容器时，直接由自身触发 */
+  if (barEls.length) {
+    barEls.forEach(function (bar) {
+      if (bar.closest('.reveal')) return;
+      var w = bar.dataset.w || bar.style.getPropertyValue('--w');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            if (w) bar.style.width = w;
+            observer.unobserve(bar);
+          }
+        });
+      }, { threshold: 0.4 });
+      observer.observe(bar);
+    });
+  }
+  if (gaugeArc) {
+    var gObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          gaugeArc.style.strokeDashoffset = gaugeArc.dataset.off || '56.5';
+          gObs.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    gObs.observe(gaugeArc);
+  }
+
+  /* ---------- 吉祥物眨眼 ---------- */
+  var mascots = document.querySelectorAll('.mascot-hero, .id-avatar .mascot, .footer .mascot');
+  if (mascots.length && !prefersReduced) {
+    function scheduleBlink() {
+      var delay = 2600 + Math.random() * 3400;
+      setTimeout(function () {
+        mascots.forEach(function (m) {
+          m.classList.remove('is-blinking');
+          void m.offsetWidth; /* 重启动画 */
+          m.classList.add('is-blinking');
+        });
+        scheduleBlink();
+      }, delay);
+    }
+    scheduleBlink();
+  }
+
+  /* ---------- Hero 词语轮换 ---------- */
+  var rotateEl = document.querySelector('.hero-rotate');
+  if (rotateEl) {
+    var phrases = [];
+    var items = rotateEl.querySelectorAll('[data-phrase]');
+    items.forEach(function (it) { phrases.push(it.textContent); });
+    if (phrases.length > 1) {
+      items.forEach(function (it, i) {
+        if (i > 0) { it.style.display = 'none'; }
+      });
+      var idx = 0;
+      setInterval(function () {
+        items[idx].style.display = 'none';
+        idx = (idx + 1) % phrases.length;
+        items[idx].style.display = '';
+      }, prefersReduced ? 8000 : 2800);
+    }
+  }
+
+  /* ---------- 点击星光 ---------- */
+  var SPARK_COLORS = ['#FF7BA9', '#A78BFA', '#52D9AC', '#FFC94D', '#6FC7FF'];
+  function sparkPath() {
+    return '<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path d="M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z" fill="currentColor"/></svg>';
+  }
+  function burst(x, y) {
+    if (prefersReduced) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 6; i++) {
+      var s = document.createElement('span');
+      s.className = 'click-spark';
+      s.style.color = SPARK_COLORS[Math.floor(Math.random() * SPARK_COLORS.length)];
+      s.style.left = x + 'px';
+      s.style.top = y + 'px';
+      s.style.setProperty('--dx', (Math.random() * 90 - 45).toFixed(0) + 'px');
+      s.style.setProperty('--dy', (Math.random() * 90 - 30).toFixed(0) + 'px');
+      s.style.animationDelay = (Math.random() * 0.12).toFixed(2) + 's';
+      s.innerHTML = sparkPath();
+      frag.appendChild(s);
+    }
+    document.body.appendChild(frag);
+    setTimeout(function () {
+      frag.querySelectorAll('.click-spark').forEach(function (s) { s.remove(); });
+    }, 1200);
+  }
+  document.addEventListener('click', function (e) {
+    burst(e.clientX, e.clientY);
+  });
+
+  /* ---------- 页脚年份 ---------- */
+  var yearEl = document.querySelector('[data-year]');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+})();
