@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理后台 · yhanw ✨</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1 L14.6 9.4 L23 12 L14.6 14.6 L12 23 L9.4 14.6 L1 12 L9.4 9.4 Z' fill='%2346395A'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- ============ 导航 ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home" aria-label="返回 yhanw 首页">
+        <svg class="mascot" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><linearGradient id="mgNav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9ADD9"/><stop offset="1" stop-color="#46395A"/></linearGradient></defs>
+          <path d="M60 8 L72.9 42.2 L109.5 43.9 L80.9 66.8 L90.6 102.1 L60 82 L29.4 102.1 L39.1 66.8 L10.5 43.9 L47.1 42.2 Z" fill="url(#mgNav)" stroke="url(#mgNav)" stroke-width="13" stroke-linejoin="round"/>
+          <path d="M82 24 L85 31 L92 33 L85 35.5 L82 42.5 L79 35.5 L72 33 L79 31 Z" fill="#fff" opacity="0.8"/>
+          <g class="m-face">
+            <g class="m-eyes">
+              <circle cx="46" cy="57" r="4.6" fill="#46395A"/><circle cx="46" cy="55.4" r="1.6" fill="#fff"/>
+              <circle cx="74" cy="57" r="4.6" fill="#46395A"/><circle cx="74" cy="55.4" r="1.6" fill="#fff"/>
+            </g>
+            <ellipse cx="34" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+            <ellipse cx="86" cy="67" rx="5.5" ry="3.4" fill="#FF9EBC" opacity="0.7"/>
+            <path d="M52 68 Q60 75 68 68" fill="none" stroke="#46395A" stroke-width="3.2" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span>yhanw</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="../index.html#home">首页</a>
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#oshi">推し</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="../blog/index.html">博客</a>
+        <a class="is-active" href="index.html">管理</a>
+        <a class="nav-cta" href="../aboutme/Core/CoreData.html">✨ 核心档案</a>
+      </nav>
+      <button class="nav-burger" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-hero" style="padding-bottom:24px">
+        <span class="eyebrow">✦ Admin · 管理后台</span>
+        <h1 class="page-title" style="font-size:clamp(2rem,5vw,2.8rem)">博客 <span class="grad font-latin">ADMIN</span></h1>
+        <p class="page-sub">文章通过 GitHub API 直接提交到仓库，推送后自动发布 🚀</p>
+      </div>
+
+      <div class="admin-wrap">
+        <!-- ============ 登录 ============ -->
+        <section class="admin-card" id="view-login">
+          <h2>连接 GitHub</h2>
+          <p class="sub">输入你的仓库与个人访问令牌（PAT），即可开始管理文章。</p>
+          <div class="admin-error" id="login-error"></div>
+          <div class="field">
+            <label for="f-repo">仓库 <span class="hint">owner/repo</span></label>
+            <input class="input" id="f-repo" placeholder="yhanw/yhanw.github.io" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="f-token">GitHub 个人访问令牌（PAT）</label>
+            <input class="input" id="f-token" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-primary" id="btn-connect">🔗 连接</button>
+          </div>
+          <div class="token-note">
+            🔒 Token 只保存在<strong>你自己的浏览器</strong>（localStorage）中，不会上传到任何服务器。
+            建议使用仅授权本仓库的 fine-grained token（Contents 读写权限）。
+          </div>
+        </section>
+
+        <!-- ============ 文章列表 ============ -->
+        <section class="admin-card" id="view-main" style="display:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+            <div>
+              <h2>文章管理</h2>
+              <p class="sub" id="repo-label" style="margin-bottom:0"></p>
+            </div>
+            <div class="admin-actions" style="margin-top:0">
+              <button class="btn btn-primary" id="btn-new">✍️ 写新文章</button>
+              <button class="btn btn-ghost" id="btn-logout">退出</button>
+            </div>
+          </div>
+          <div class="admin-error" id="main-error"></div>
+          <div class="admin-list" id="post-list">
+            <div class="admin-loading">加载中…</div>
+          </div>
+        </section>
+
+        <!-- ============ 编辑器 ============ -->
+        <section class="admin-card" id="view-editor" style="display:none">
+          <h2 id="editor-title">写新文章</h2>
+          <p class="sub">正文支持 Markdown：标题、列表、引用、代码块、链接、图片等。</p>
+          <div class="admin-error" id="edit-error"></div>
+          <input type="hidden" id="f-orig-id">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-id">文章 ID（slug）<span class="hint">小写字母/数字/连字符</span></label>
+              <input class="input" id="f-id" placeholder="my-first-post" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="f-category">分类</label>
+              <input class="input" id="f-category" placeholder="随笔 / 折腾 / 音游" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-title">标题</label>
+            <input class="input" id="f-title" placeholder="文章的标题" autocomplete="off">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-date">日期</label>
+              <input class="input" id="f-date" type="date">
+            </div>
+            <div class="field">
+              <label for="f-tags">标签 <span class="hint">用逗号分隔</span></label>
+              <input class="input" id="f-tags" placeholder="博客, 日常" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-summary">摘要</label>
+            <textarea class="textarea" id="f-summary" placeholder="列表页展示的一句话简介"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-body">正文（Markdown）</label>
+            <textarea class="textarea textarea-lg" id="f-body" placeholder="# 标题&#10;&#10;正文内容…"></textarea>
+          </div>
+
+          <label class="check-row" style="margin-bottom:6px">
+            <input type="checkbox" id="f-draft">
+            存为草稿（不在博客页面展示）
+          </label>
+
+          <div class="editor-preview" id="preview"></div>
+
+          <div class="admin-actions">
+            <button class="btn btn-primary" id="btn-save">💾 保存并发布</button>
+            <button class="btn btn-ghost" id="btn-preview">👁️ 预览</button>
+            <button class="btn btn-ghost" id="btn-back">← 返回列表</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="../js/main.js"></script>
+  <script src="../blog/blog.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
