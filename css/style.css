@@ -924,26 +924,25 @@ html.dark .theme-toggle .icon-sun { display: block; }
 }
 .tip-link:hover { transform: translateY(-2px) scale(1.03); }
 
-/* ---------- 时间线（横向，从左到右） ---------- */
+/* ---------- 时间线（横向，可换行） ---------- */
 .timeline {
   position: relative;
   display: flex;
-  gap: 16px;
-  padding: 52px 8px 10px;
+  flex-wrap: wrap;
+  gap: 24px 18px;
+  padding: 24px 8px 10px;
   z-index: 1;
 }
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 2%;
-  right: 2%;
-  top: 43px;
-  height: 4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, var(--pink), var(--lilac), var(--mint), var(--lemon), var(--sky));
-  opacity: .45;
+.tl-item {
+  flex: 1 1 230px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  position: relative;
 }
-.tl-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; position: relative; }
 .tl-dot {
   width: 22px;
   height: 22px;
@@ -1320,7 +1319,7 @@ html.dark .contact-card { background: linear-gradient(135deg, #2E4F92, #26334A);
   /* 移动端：时间轴改为纵向 */
   .timeline { flex-direction: column; gap: 0; padding: 0; }
   .timeline::before { left: 10px; right: auto; top: 4px; bottom: 4px; width: 4px; height: auto; background: linear-gradient(180deg, var(--pink), var(--lilac), var(--mint), var(--lemon), var(--sky)); }
-  .tl-item { align-items: stretch; padding: 0 0 24px 36px; }
+  .tl-item { flex: 0 0 auto; align-items: stretch; padding: 0 0 24px 36px; }
   .tl-item:last-child { padding-bottom: 0; }
   .tl-dot { position: absolute; left: 0; top: 2px; }
   /* 移动端：气泡变为内嵌面板（点击链接跳转） */
