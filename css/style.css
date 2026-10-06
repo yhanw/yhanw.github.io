@@ -2607,3 +2607,70 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.60; }
 
 /* 关于我：去掉抬头后，首屏留白收一点 */
 #about.section-block { padding-top: 52px; }
+/* ============================================================
+   开头 — MORE MORE JUMP! Q版壁纸横幅
+   （官方 unite02 单位色壁纸打底 + 四位成员的官方 Q版头像）
+   ============================================================ */
+.mmj-open {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 24px 22px 20px;
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background-color: #DDF1C3;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .10)), url("../assets/img/mmj-q/bg.jpg");
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+.mmj-chibis {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+.mmj-chibis li {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(255, 255, 255, .92);
+  box-shadow: 0 6px 16px rgba(32, 26, 30, .14);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease;
+}
+.mmj-chibis li:hover { transform: translateY(-4px) scale(1.04); }
+.mmj-chibis img { width: 104%; height: 104%; object-fit: contain; }
+.mmj-open-text { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.mmj-unit {
+  font-family: var(--font-latin);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-indent: 4px;
+  color: var(--pink-deep);
+}
+.mmj-names { font-size: .76rem; letter-spacing: 1.6px; color: var(--ink-soft); }
+html.dark .mmj-open {
+  background-image: linear-gradient(180deg, rgba(20, 26, 17, .60), rgba(20, 26, 17, .72)), url("../assets/img/mmj-q/bg.jpg");
+}
+@media (max-width: 620px) {
+  .mmj-open { padding: 18px 14px 16px; gap: 10px; }
+  .mmj-chibis { gap: 11px; }
+  .mmj-chibis li { width: 68px; height: 68px; }
+  .mmj-unit { font-size: .88rem; letter-spacing: 2.6px; text-indent: 2.6px; }
+  .mmj-names { font-size: .7rem; letter-spacing: 1px; }
+}
