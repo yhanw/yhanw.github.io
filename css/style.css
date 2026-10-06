@@ -2119,3 +2119,9 @@ html.dark .token-note { color: #EAD9A8; }
   .about-oshi .oshi-row { grid-template-columns: 40px 100px minmax(0, 1fr); }
   .about-oshi .oshi-tags { grid-column: 2 / span 2 !important; grid-row: 3 !important; justify-content: flex-start !important; margin-top: 4px; }
 }
+/* 推し：名字后跟所属团队（同一行），单行网格 */
+.about-oshi .oshi-row { grid-template-rows: auto; }
+.about-oshi .oshi-name { grid-row: 1; display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 8px; }
+.about-oshi .oshi-name .oshi-sub { font-size: 0.74rem; color: var(--ink-faint); font-weight: 400; letter-spacing: 0.3px; }
+.about-oshi .oshi-ip { grid-row: 1; }
+.about-oshi .oshi-row .oshi-tags { grid-row: 1; }
