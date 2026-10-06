@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://yhanw.github.io/">
   <meta property="og:image" content="https://yhanw.github.io/assets/img/og.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233A6BC4'/%3E%3Ctext x='32' y='45' font-size='38' font-weight='700' text-anchor='middle' fill='%23fff' font-family='Georgia,serif'%3Ey%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234E9E1F'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='32' cy='20' r='9'/%3E%3Ccircle cx='32' cy='44' r='9'/%3E%3Ccircle cx='20' cy='32' r='9'/%3E%3Ccircle cx='44' cy='32' r='9'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="#home" aria-label="yhw 首页">
-        <span class="brand-mark" aria-hidden="true">y</span>
+        <span class="brand-mark" aria-hidden="true"><i class="clover-ico"></i></span>
         <span>yhw</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
@@ -60,7 +60,7 @@
           <span class="hero-eyebrow">PERSONAL HOMEPAGE</span>
           <h1 class="hero-title">你好，我是 <span class="grad font-latin">yhw</span></h1>
           <p class="hero-rotate">
-            <span data-phrase>电竞选手 · 经济学学生 · AI 芯片设计工程师</span>
+            <span id="hero-typing" data-text="电竞选手 · 经济学学生 · AI 芯片设计工程师">电竞选手 · 经济学学生 · AI 芯片设计工程师</span><span class="typing-caret" aria-hidden="true"></span>
           </p>
           <div class="hero-chips">
             <span class="chip chip-pink">Gentoo</span>
@@ -71,6 +71,10 @@
           </div>
         </div>
       </div>
+
+      <span class="clover-ico hero-clover c1" aria-hidden="true"></span>
+      <span class="clover-ico hero-clover c2" aria-hidden="true"></span>
+      <span class="clover-ico hero-clover c3" aria-hidden="true"></span>
 
       <div class="hero-scroll" aria-hidden="true">
         <div class="mouse"></div>
@@ -139,12 +143,58 @@
                 <a class="chip chip-lemon" href="https://music.163.com/#/artist?id=339594" target="_blank" rel="noopener" title="网易云音乐 · Mili">Mili</a>
                 <a class="chip chip-sky" href="https://music.163.com/#/artist?id=57020536" target="_blank" rel="noopener" title="网易云音乐 · トゲナシトゲアリ">トゲナシトゲアリ</a>
               </div>
+              <!-- ✏️ 网易云音乐播放器（点标签切换歌曲） -->
+              <div class="music-player">
+                <div class="music-tabs">
+                  <button class="music-tab is-active" type="button" data-song="2142857204">雑踏、僕らの街</button>
+                  <button class="music-tab" type="button" data-song="28921692">Chocological</button>
+                  <button class="music-tab" type="button" data-song="2054878689">Unlimited Hyperlink</button>
+                </div>
+                <iframe id="music-frame" title="网易云音乐播放器" frameborder="no" loading="lazy"
+                        src="https://music.163.com/outchain/player?type=2&id=2142857204&auto=0&height=66"></iframe>
+              </div>
             </div>
           </div>
 
-          <div class="gh-chart">
-            <div class="about-label">GitHub 活跃度</div>
-            <img src="https://ghchart.rshah.org/yhanw" alt="yhw 的 GitHub 贡献图" loading="lazy" onerror="this.remove()">
+          <div class="about-extra">
+            <div class="gh-chart">
+              <div class="about-label">GitHub 活跃度</div>
+              <img src="https://ghchart.rshah.org/yhanw" alt="yhw 的 GitHub 贡献图" loading="lazy" onerror="this.remove()">
+            </div>
+
+            <div class="steam-card">
+              <!-- ✏️ Steam 资料（公开个人资料快照） -->
+              <div class="about-label">Steam · 常用游戏</div>
+              <div class="steam-head">
+                <img class="steam-avatar" src="assets/img/steam-avatar.jpg" alt="Steam 头像" loading="lazy" onerror="this.remove()">
+                <div class="steam-meta">
+                  <b>m1n0r1</b>
+                  <a href="https://steamcommunity.com/id/Hanasato_Minor1/" target="_blank" rel="noopener">查看资料 ↗</a>
+                </div>
+              </div>
+              <div class="steam-games">
+                <a class="steam-game" href="https://steamcommunity.com/app/1973530" target="_blank" rel="noopener">
+                  <img src="assets/img/steam/1973530.jpg" alt="Limbus Company" loading="lazy">
+                  <span class="sg-name">Limbus Company</span>
+                  <span class="sg-hours">365 h</span>
+                </a>
+                <a class="steam-game" href="https://steamcommunity.com/app/394360" target="_blank" rel="noopener">
+                  <img src="assets/img/steam/394360.jpg" alt="Hearts of Iron IV" loading="lazy">
+                  <span class="sg-name">Hearts of Iron IV</span>
+                  <span class="sg-hours">282 h</span>
+                </a>
+                <a class="steam-game" href="https://steamcommunity.com/app/431960" target="_blank" rel="noopener">
+                  <img src="assets/img/steam/431960.jpg" alt="Wallpaper Engine" loading="lazy">
+                  <span class="sg-name">Wallpaper Engine</span>
+                  <span class="sg-hours">46 h</span>
+                </a>
+                <a class="steam-game" href="https://steamcommunity.com/app/1451940" target="_blank" rel="noopener">
+                  <img src="assets/img/steam/1451940.jpg" alt="NEEDY STREAMER OVERLOAD" loading="lazy">
+                  <span class="sg-name">NEEDY STREAMER OVERLOAD</span>
+                  <span class="sg-hours">2.1 h</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

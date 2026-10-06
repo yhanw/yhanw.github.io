@@ -235,4 +235,76 @@
       if (tb) tb.click();
     }
   });
+  /* ---------- Hero 打字机 ---------- */
+  var typingEl = document.getElementById('hero-typing');
+  if (typingEl) {
+    var fullText = typingEl.getAttribute('data-text') || typingEl.textContent;
+    if (!prefersReduced) {
+      typingEl.textContent = '';
+      var ti = 0;
+      var typeNext = function () {
+        if (ti <= fullText.length) {
+          typingEl.textContent = fullText.slice(0, ti);
+          ti++;
+          setTimeout(typeNext, 65 + Math.random() * 70);
+        }
+      };
+      setTimeout(typeNext, 350);
+    }
+  }
+
+  /* ---------- 卡片鼠标光晕 ---------- */
+  if (!prefersReduced) {
+    document.querySelectorAll('.project-card, .skill-card, .friend-card, .tl-card, .steam-card').forEach(function (el) {
+      el.classList.add('spotlight');
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
+  }
+
+  /* ---------- 网易云播放器切换 ---------- */
+  var musicFrame = document.getElementById('music-frame');
+  var musicTabs = document.querySelectorAll('.music-tab');
+  if (musicFrame && musicTabs.length) {
+    musicTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        musicTabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        musicFrame.src = 'https://music.163.com/outchain/player?type=2&id=' + tab.dataset.song + '&auto=0&height=66';
+      });
+    });
+  }
+
+  /* ---------- 彩蛋：↑↑↓↓←→←→BA ---------- */
+  var KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  var konamiPos = 0;
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    var key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    if (key === KONAMI[konamiPos]) {
+      konamiPos++;
+      if (konamiPos === KONAMI.length) {
+        konamiPos = 0;
+        var toast = document.createElement('div');
+        toast.className = 'egg-toast';
+        toast.textContent = '✨ きらり！你找到了隐藏彩蛋';
+        document.body.appendChild(toast);
+        requestAnimationFrame(function () { toast.classList.add('show'); });
+        document.querySelectorAll('.oshi-avatar, .avatar-y, .brand-mark').forEach(function (el, i) {
+          setTimeout(function () {
+            el.classList.add('spin-once');
+            setTimeout(function () { el.classList.remove('spin-once'); }, 1200);
+          }, i * 90);
+        });
+        setTimeout(function () { toast.classList.remove('show'); }, 2600);
+        setTimeout(function () { toast.remove(); }, 3300);
+      }
+    } else {
+      konamiPos = (key === KONAMI[0]) ? 1 : 0;
+    }
+  });
 })();
