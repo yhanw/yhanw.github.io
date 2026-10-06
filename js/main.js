@@ -251,7 +251,7 @@
         konamiPos = 0;
         var toast = document.createElement('div');
         toast.className = 'egg-toast';
-        toast.textContent = '✨ きらり！你找到了隐藏彩蛋';
+        toast.textContent = '✨ 彩蛋解锁：四叶草的天使';
         document.body.appendChild(toast);
         requestAnimationFrame(function () { toast.classList.add('show'); });
         document.querySelectorAll('.oshi-avatar, .avatar-y, .brand-mark').forEach(function (el, i) {
@@ -267,4 +267,93 @@
       konamiPos = (key === KONAMI[0]) ? 1 : 0;
     }
   });
+
+  /* ---------- 项目：GitHub Overview 风格仓库小卡片 ---------- */
+  var repoGrid = document.getElementById('repo-grid');
+  if (repoGrid) {
+    var GH_USER = 'yhanw';
+    var REPO_API = 'https://api.github.com/users/' + GH_USER + '/repos?per_page=100&sort=pushed';
+    var LANG_COLOR = {
+      JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5', C: '#555555',
+      'C++': '#f34b7d', 'C#': '#178600', HTML: '#e34c26', CSS: '#563d7c', SCSS: '#c6538c',
+      Vue: '#41b883', Astro: '#ff5a03', Svelte: '#ff3e00', Shell: '#89e051', Batchfile: '#C1F12E',
+      Java: '#b07219', Kotlin: '#A97BFF', Go: '#00ADD8', Rust: '#dea584', Ruby: '#701516',
+      PHP: '#4F5D95', Lua: '#000080', MDX: '#fcb32c', Jupyter: '#DA5B0B', 'Jupyter Notebook': '#DA5B0B',
+      PowerShell: '#012456', Dockerfile: '#384d54', Makefile: '#427819'
+    };
+    var ICON_REPO = '<svg class="repo-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>';
+    var ICON_STAR = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>';
+    var ICON_FORK = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 11.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/></svg>';
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+      });
+    }
+    function relTime(iso) {
+      var t = new Date(iso).getTime();
+      if (!t) return '';
+      var days = Math.floor((Date.now() - t) / 86400000);
+      if (days <= 0) return '今天更新';
+      if (days === 1) return '昨天更新';
+      if (days < 30) return days + ' 天前更新';
+      if (days < 365) return Math.floor(days / 30) + ' 个月前更新';
+      return Math.floor(days / 365) + ' 年前更新';
+    }
+    function cardHTML(r) {
+      var lang = r.language
+        ? '<span class="repo-lang"><i class="lang-dot" style="background:' +
+          (LANG_COLOR[r.language] || '#8b949e') + '"></i>' + esc(r.language) + '</span>'
+        : '';
+      var stars = r.stargazers_count ? '<span class="repo-stat">' + ICON_STAR + esc(r.stargazers_count) + '</span>' : '';
+      var forks = r.forks_count ? '<span class="repo-stat">' + ICON_FORK + esc(r.forks_count) + '</span>' : '';
+      var when = r.pushed_at ? '<span class="repo-stat">' + relTime(r.pushed_at) + '</span>' : '';
+      return '<a class="repo-card" href="' + esc(r.html_url) + '" target="_blank" rel="noopener">' +
+        '<div class="repo-top">' + ICON_REPO +
+        '<span class="repo-name">' + esc(r.name) + '</span>' +
+        '<span class="repo-badge">' + (r.fork ? 'Fork' : 'Public') + '</span></div>' +
+        '<p class="repo-desc">' + esc(r.description || '暂无描述') + '</p>' +
+        '<div class="repo-meta">' + lang + stars + forks + when + '</div></a>';
+    }
+    function fallbackCard() {
+      repoGrid.innerHTML = '<a class="repo-card" href="https://github.com/' + GH_USER +
+        '?tab=repositories" target="_blank" rel="noopener">' +
+        '<div class="repo-top">' + ICON_REPO +
+        '<span class="repo-name">' + GH_USER + '</span>' +
+        '<span class="repo-badge">GitHub</span></div>' +
+        '<p class="repo-desc">前往 GitHub 查看全部仓库与提交记录。</p>' +
+        '<div class="repo-meta"><span class="repo-stat">github.com/' + GH_USER + '</span></div></a>';
+    }
+    function render(list) {
+      var repos = list
+        .filter(function (r) { return !r.archived; })
+        .sort(function (a, b) {
+          if (!!a.fork !== !!b.fork) return a.fork ? 1 : -1;
+          return new Date(b.pushed_at) - new Date(a.pushed_at);
+        })
+        .slice(0, 6);
+      if (!repos.length) { fallbackCard(); return; }
+      repoGrid.innerHTML = repos.map(cardHTML).join('');
+    }
+    var cached = null;
+    try {
+      var raw = sessionStorage.getItem('gh-repos');
+      if (raw) {
+        var box = JSON.parse(raw);
+        if (box && box.at && Date.now() - box.at < 600000 && box.list) cached = box.list;
+      }
+    } catch (e) { /* 忽略 */ }
+    if (cached) {
+      render(cached);
+    } else {
+      fetch(REPO_API, { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+        .then(function (list) {
+          if (!Array.isArray(list)) throw new Error('bad payload');
+          try { sessionStorage.setItem('gh-repos', JSON.stringify({ at: Date.now(), list: list })); } catch (e) { /* 忽略 */ }
+          render(list);
+        })
+        .catch(function () { fallbackCard(); });
+    }
+  }
 })();
