@@ -2240,3 +2240,28 @@ html.dark .about-card:hover::after { opacity: 0.38; }
 @media (max-width: 900px) {
   .about-card::after { height: 70%; width: 38%; opacity: 0.24; }
 }
+/* Steam 卡：内容右留白 + 愛莉立绘改为右上角小图（避免与游戏列表重叠） */
+.steam-card.mmj-airi::after {
+  top: 0;
+  bottom: auto;
+  right: 0;
+  height: 56%;
+  width: 26%;
+  opacity: 0.30;
+  background-position: top right;
+  -webkit-mask-image: linear-gradient(to bottom left, #000 45%, transparent 88%);
+  mask-image: linear-gradient(to bottom left, #000 45%, transparent 88%);
+}
+.steam-card .about-label,
+.steam-card .steam-head,
+.steam-card .steam-games { max-width: 74%; }
+.steam-card:hover::after { opacity: 0.40; }
+html.dark .steam-card.mmj-airi::after { opacity: 0.24; }
+html.dark .steam-card:hover::after { opacity: 0.32; }
+
+@media (max-width: 900px) {
+  .steam-card .about-label,
+  .steam-card .steam-head,
+  .steam-card .steam-games { max-width: 100%; }
+  .steam-card.mmj-airi::after { height: 40%; width: 30%; opacity: 0.16; }
+}
