@@ -2291,3 +2291,40 @@ html.dark .steam-card:hover::after { opacity: 0.9; }
   .steam-card .steam-games { max-width: 100%; }
   .steam-card.mmj-airi::after { height: 100%; width: 26%; opacity: 0.55; }
 }
+/* ============================================================
+   Steam 卡 — 真两栏结构（游戏列表 左 / 愛莉立绘 右，不会重叠）
+   ============================================================ */
+.steam-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 116px;
+  gap: 14px;
+  align-items: start;
+}
+.steam-card::after { content: none; }
+.steam-main { min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+.steam-main .about-label { margin-top: 0; }
+.steam-art {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 140px;
+}
+.steam-art img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0.92;
+}
+html.dark .steam-art img { opacity: 0.82; }
+
+@media (max-width: 900px) {
+  .steam-card { grid-template-columns: minmax(0, 1fr) 84px; gap: 10px; }
+  .steam-art img { max-height: 200px; opacity: 0.8; }
+}
+@media (max-width: 620px) {
+  .steam-card { grid-template-columns: 1fr; }
+  .steam-art { display: none; }
+}
