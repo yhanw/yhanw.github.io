@@ -2420,3 +2420,62 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.60; }
   .steam-art img { opacity: 0.50; }
   html.dark .steam-art img { opacity: 0.38; }
 }
+/* ============================================================
+   项目入口卡（跳转 GitHub）
+   ============================================================ */
+.projects-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px;
+  max-width: 620px;
+  margin-inline: auto;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.projects-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 55%, var(--pink-soft));
+  opacity: .55;
+  pointer-events: none;
+}
+.projects-link:hover { transform: translateY(-4px); border-color: var(--pink); box-shadow: var(--shadow-pink); }
+.projects-link-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3F8C18, #7ED957);
+  color: #fff;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.projects-link-text { flex: 1; min-width: 0; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 3px; }
+.projects-link-text b { font-family: var(--font-display); font-size: 1.12rem; color: var(--ink); }
+.projects-link-text em { font-style: normal; font-family: var(--font-latin); font-size: 0.82rem; color: var(--ink-faint); }
+.projects-link-arrow {
+  font-size: 1.4rem;
+  color: var(--pink-deep);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform .28s ease;
+}
+.projects-link:hover .projects-link-arrow { transform: translateX(6px); }
+
+@media (max-width: 620px) {
+  .projects-link { padding: 20px; gap: 14px; }
+  .projects-link-icon { width: 46px; height: 46px; border-radius: 14px; }
+  .projects-link-text b { font-size: 1rem; }
+}
