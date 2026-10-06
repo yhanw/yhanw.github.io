@@ -760,10 +760,25 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .about-extra { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; margin-top: 28px; position: relative; z-index: 1; }
 .about-extra .gh-chart { margin-top: 0; }
 
-/* 关于区内的技能块 */
+/* 关于区内的技能块（GitHub 风格小方块） */
 .about-skills { margin-top: 28px; position: relative; z-index: 1; }
 .about-skills .about-label { margin-top: 0; }
-.about-skills .skills-grid { gap: 18px; }
+.skill-tiles { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tile {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink-soft);
+  font-size: 0.83rem;
+  font-weight: 600;
+  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+}
+.skill-tile:hover { transform: translateY(-2px); border-color: var(--pink); color: var(--ink); }
+.skill-tile .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 
 /* Steam 卡片 */
 .steam-card {
