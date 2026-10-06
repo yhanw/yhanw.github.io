@@ -760,6 +760,11 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .about-extra { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; margin-top: 28px; position: relative; z-index: 1; }
 .about-extra .gh-chart { margin-top: 0; }
 
+/* 关于区内的推し块 */
+.about-oshi { margin-top: 28px; position: relative; z-index: 1; }
+.about-oshi .about-label { margin-top: 0; }
+.about-oshi .oshi-list { box-shadow: none; }
+
 /* 关于区内的技能块（GitHub 风格小方块） */
 .about-skills { margin-top: 28px; position: relative; z-index: 1; }
 .about-skills .about-label { margin-top: 0; }
@@ -1142,26 +1147,37 @@ html.dark .theme-toggle .icon-sun { display: block; }
 }
 .tip-link:hover { transform: translateY(-2px) scale(1.03); }
 
-/* ---------- 时间线（横向，可换行） ---------- */
+/* ---------- 时间线（纵向时间轴） ---------- */
 .timeline {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 18px;
-  padding: 24px 8px 10px;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 6px 0;
   z-index: 1;
 }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--pink), var(--lilac), var(--mint), var(--lemon), var(--sky));
+  opacity: .45;
+}
 .tl-item {
-  flex: 1 1 230px;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 0 9px 48px;
 }
 .tl-dot {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -12px;
   width: 24px;
   height: 24px;
   background-color: var(--pink);
@@ -1174,36 +1190,39 @@ html.dark .theme-toggle .icon-sun { display: block; }
   -webkit-mask-position: center;
   mask-position: center;
   animation: dot-breathe 2.8s ease-in-out infinite;
-  flex-shrink: 0;
   z-index: 2;
 }
-.tl-item:nth-child(2) .tl-dot { background: var(--lilac); box-shadow: 0 0 0 4px var(--lilac-soft); }
-.tl-item:nth-child(3) .tl-dot { background: var(--mint); box-shadow: 0 0 0 4px var(--mint-soft); }
-.tl-item:nth-child(4) .tl-dot { background: var(--lemon); box-shadow: 0 0 0 4px var(--lemon-soft); }
-.tl-item:nth-child(5) .tl-dot { background: var(--sky); box-shadow: 0 0 0 4px var(--sky-soft); }
+.tl-item:nth-child(2) .tl-dot { background-color: var(--lilac); }
+.tl-item:nth-child(3) .tl-dot { background-color: var(--mint); }
+.tl-item:nth-child(4) .tl-dot { background-color: var(--lemon); }
+.tl-item:nth-child(5) .tl-dot { background-color: var(--sky); }
+.tl-item:nth-child(6) .tl-dot { background-color: var(--pink); }
+.tl-item:nth-child(7) .tl-dot { background-color: var(--lilac); }
+.tl-item:nth-child(8) .tl-dot { background-color: var(--mint); }
 .tl-year {
   font-family: var(--font-latin);
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--pink-deep);
   letter-spacing: 1px;
+  width: 58px;
+  flex-shrink: 0;
 }
-.tl-item:nth-child(2) .tl-year { color: var(--lilac-deep); }
+.tl-item:nth-child(2) .tl-year { color: var(--lilac); }
 .tl-item:nth-child(3) .tl-year { color: var(--mint-deep); }
-.tl-item:nth-child(4) .tl-year { color: #d99a1b; }
-.tl-item:nth-child(5) .tl-year { color: #2E9BE0; }
+.tl-item:nth-child(4) .tl-year { color: #b8860b; }
+.tl-item:nth-child(5) .tl-year { color: var(--sky-deep); }
 .tl-card {
+  flex: 1;
+  min-width: 0;
   background: var(--card);
   border: 2px solid var(--line);
   border-radius: var(--r-md);
-  padding: 14px 16px;
-  width: 100%;
-  transition: transform .3s ease, box-shadow .3s ease;
+  padding: 12px 20px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.tl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
-.tl-card h3 { font-family: var(--font-display); font-size: 0.98rem; margin-bottom: 4px; }
-.tl-card p { color: var(--ink-soft); font-size: 0.82rem; line-height: 1.7; }
-
+.tl-card:hover { transform: translateX(5px); box-shadow: var(--shadow-soft); }
+.tl-card h3 { font-family: var(--font-display); font-size: 1.02rem; }
 /* ---------- 联系 ---------- */
 .contact-card {
   background: linear-gradient(135deg, var(--pink-deep), var(--lilac-deep));
@@ -1542,12 +1561,10 @@ html.dark .contact-card { background: linear-gradient(135deg, #35661B, #5A3A26);
   .id-card { position: static; }
   .oshi-row { flex-wrap: wrap; }
   .oshi-row .oshi-tags { margin-left: 0; }
-  /* 移动端：时间轴改为纵向 */
-  .timeline { flex-direction: column; gap: 0; padding: 0; }
-  .timeline::before { left: 10px; right: auto; top: 4px; bottom: 4px; width: 4px; height: auto; background: linear-gradient(180deg, var(--pink), var(--lilac), var(--mint), var(--lemon), var(--sky)); }
-  .tl-item { flex: 0 0 auto; align-items: stretch; padding: 0 0 24px 36px; }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-dot { position: absolute; left: 0; top: 2px; }
+  /* 移动端：时间轴紧凑一些 */
+  .tl-item { padding: 8px 0 8px 42px; gap: 10px; }
+  .tl-year { width: 50px; font-size: 0.9rem; }
+  .tl-card { padding: 10px 16px; }
   /* 移动端：气泡变为内嵌面板（点击链接跳转） */
   .oshi-tip {
     position: static;
