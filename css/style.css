@@ -6,10 +6,10 @@
 :root {
   color-scheme: light;
 
-  /* M3 色板（亮色） */
-  --cream: #FFF8FA;          /* surface */
+  /* M3 色板（亮色）· 浅绿基底 */
+  --cream: #F1F9E6;          /* surface：全站浅绿基底 */
   --card: #FFFFFF;           /* surface-container-lowest（卡片） */
-  --card-2: #F7EDF2;         /* surface-container（面板衬底） */
+  --card-2: #E9F5DA;         /* surface-container（面板衬底） */
   --pink: #4E9E1F;           /* primary：MORE MORE JUMP! 绿 */
   --on-primary: #FFFFFF;
   --pink-deep: #10300A;      /* on-primary-container */
@@ -26,17 +26,17 @@
   --sky: #5F8FC9;
   --sky-deep: #3A6294;
   --sky-soft: #DCECFB;
-  --ink: #201A1E;            /* on-surface */
-  --ink-soft: #51444D;       /* on-surface-variant */
-  --ink-faint: #83747D;      /* outline */
-  --line: #D5C3CC;           /* outline-variant */
+  --ink: #1E2318;            /* on-surface */
+  --ink-soft: #4C5646;       /* on-surface-variant */
+  --ink-faint: #7A8771;      /* outline */
+  --line: #CFE1C0;           /* outline-variant */
 
   /* 表面辅助 */
-  --nav-bg: rgba(255, 248, 250, 0.85);
+  --nav-bg: rgba(241, 249, 230, 0.85);
   --card-shine: rgba(255, 255, 255, 0.9);
-  --bar-bg: #F1E4EC;
+  --bar-bg: #E5F2D5;
   --dots: rgba(78, 158, 31, 0.09);
-  --stage-shadow: rgba(70, 57, 90, 0.16);
+  --stage-shadow: rgba(58, 70, 46, 0.16);
 
   /* 字体（Mizuki：思源宋体标题 + 思源黑体正文） */
   --font-display: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
@@ -60,9 +60,9 @@
 html.dark {
   color-scheme: dark;
 
-  --cream: #171216;
-  --card: #221C20;
-  --card-2: #2A2226;
+  --cream: #141A11;
+  --card: #1C2318;
+  --card-2: #232C1D;
   --pink: #A8E07A;
   --on-primary: #143307;
   --pink-deep: #D9F6BF;
@@ -79,14 +79,14 @@ html.dark {
   --sky: #9CC7F0;
   --sky-deep: #DCECFB;
   --sky-soft: #33465E;
-  --ink: #F0E1E6;
-  --ink-soft: #D4C1C9;
-  --ink-faint: #9E8C95;
-  --line: #51434B;
+  --ink: #EEF4E7;
+  --ink-soft: #CBD8C2;
+  --ink-faint: #94A288;
+  --line: #45523B;
 
-  --nav-bg: rgba(34, 28, 32, 0.85);
+  --nav-bg: rgba(28, 35, 24, 0.85);
   --card-shine: rgba(255, 255, 255, 0.04);
-  --bar-bg: #3A3138;
+  --bar-bg: #2C3824;
   --dots: rgba(169, 199, 255, 0.07);
   --stage-shadow: rgba(0, 0, 0, 0.5);
 
@@ -2563,4 +2563,175 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.60; }
 @media (max-width: 620px) {
   .repo-grid { grid-template-columns: 1fr; gap: 12px; }
   .repo-card { min-height: 0; padding: 14px 15px; }
+}
+/* ============================================================
+   音乐卡 — 「在网易云打开歌单」并入标题行，播放器铺满卡高
+   （与同排 Steam / szk 卡等高）
+   ============================================================ */
+.about-music { justify-content: flex-start; }
+.music-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 14px;
+  flex-wrap: wrap;
+}
+.music-head .about-label { margin: 0; }
+.music-open {
+  margin: 0;
+  font-family: var(--font-latin);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--pink-deep);
+  white-space: nowrap;
+}
+.music-open:hover { text-decoration: underline; text-underline-offset: 3px; }
+.about-music .music-player {
+  margin-top: 12px;
+  margin-inline: 0;
+  max-width: 74%;
+  flex: 1 1 auto;
+  min-height: 300px;
+  display: flex;
+}
+.about-music .music-player iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-height: 0;
+  border-radius: var(--r-md);
+}
+@media (max-width: 900px) {
+  .about-music .music-player { max-width: 100%; flex: 0 0 auto; min-height: 420px; }
+}
+/* ============================================================
+   关于我 — 抬头横幅：BanG Dream! 官方背景打底（浅绿基底）
+   + 「天使的幸运草」艺术字
+   ============================================================ */
+.about-banner {
+  position: relative;
+  margin-top: 18px;
+  min-height: 226px;
+  padding: 30px 26px 26px;
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  /* 官方背景图打底，用浅绿压成清新的绿调 */
+  background-color: #DDF1C3;
+  background-image:
+    radial-gradient(88% 130% at 10% 110%, rgba(184, 101, 58, .16) 0%, transparent 58%),
+    radial-gradient(92% 132% at 90% 108%, rgba(78, 158, 31, .20) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, .40) 0%, rgba(240, 251, 226, .30) 46%, rgba(208, 238, 176, .48) 100%),
+    url("../assets/img/banner/about-bg.jpg");
+  background-size: auto, auto, auto, cover;
+  background-position: center, center, center, center 34%;
+  background-repeat: no-repeat;
+  background-blend-mode: normal, normal, normal, luminosity;
+}
+/* 文字后的柔光，保证艺术字清楚 */
+.about-banner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 78%;
+  height: 170%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .97) 0%, rgba(255, 255, 255, .72) 46%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* 文字层 */
+.about-banner-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+.ab-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-indent: 5px;
+  color: var(--pink-deep);
+  opacity: .92;
+}
+.ab-kicker .clover-ico { width: .92em; height: .92em; color: var(--lilac); }
+.ab-sub {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  color: var(--pink-deep);
+  opacity: .72;
+}
+/* 艺术字：白色厚描边 + 渐变填充 + 立体投影 */
+.about-art-text {
+  position: relative;
+  isolation: isolate;
+  margin: 1px 0 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
+  line-height: 1.16;
+  letter-spacing: .07em;
+  text-indent: .07em;
+  white-space: nowrap;
+  filter: drop-shadow(0 3px 0 rgba(255, 255, 255, .95)) drop-shadow(0 7px 14px rgba(16, 48, 10, .20));
+}
+.about-art-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-stroke: 10px #FFFFFF;
+  paint-order: stroke fill;
+}
+.about-art-text span {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1FADF 32%, #A6DD6C 64%, #3F8C18 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 暗色模式 */
+html.dark .about-banner {
+  background-color: #1F2A17;
+  background-image:
+    radial-gradient(88% 130% at 10% 110%, rgba(240, 185, 148, .16) 0%, transparent 58%),
+    radial-gradient(92% 132% at 90% 108%, rgba(168, 224, 122, .18) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(23, 18, 22, .66) 0%, rgba(18, 26, 12, .72) 100%),
+    url("../assets/img/banner/about-bg.jpg");
+}
+html.dark .about-banner::after {
+  background: radial-gradient(closest-side, rgba(23, 18, 22, .95) 0%, rgba(23, 18, 22, .72) 46%, rgba(23, 18, 22, 0) 100%);
+}
+html.dark .ab-kicker, html.dark .ab-sub { color: var(--pink); }
+html.dark .about-art-text::before { -webkit-text-stroke: 10px rgba(18, 26, 12, .92); }
+
+@media (max-width: 900px) {
+  .about-banner { min-height: 200px; padding: 24px 18px; }
+}
+@media (max-width: 620px) {
+  .about-banner { min-height: 166px; padding: 20px 14px; }
+  .about-banner::after { width: 94%; }
+  .about-art-text { font-size: 1.85rem; letter-spacing: .05em; }
+  .about-art-text::before { -webkit-text-stroke: 7px #FFFFFF; }
+  html.dark .about-art-text::before { -webkit-text-stroke: 7px rgba(18, 26, 12, .92); }
+  .ab-kicker { font-size: .76rem; letter-spacing: 3px; text-indent: 3px; }
 }

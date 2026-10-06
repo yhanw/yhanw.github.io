@@ -8,7 +8,7 @@
   function applyTheme(t) {
     document.documentElement.classList.toggle('dark', t === 'dark');
     var tc = document.querySelector('meta[name="theme-color"]');
-    if (tc) tc.setAttribute('content', t === 'dark' ? '#171216' : '#FFF8FA');
+    if (tc) tc.setAttribute('content', t === 'dark' ? '#141A11' : '#F1F9E6');
     /* giscus 评论区主题同步 */
     var iframe = document.querySelector('iframe.giscus-frame');
     if (iframe) {

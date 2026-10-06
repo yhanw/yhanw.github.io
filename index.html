@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}</script>
-  <meta name="theme-color" content="#FFF8FA">
+  <meta name="theme-color" content="#F1F9E6">
   <link rel="stylesheet" href="css/style.css">
   <noscript><style>.reveal { opacity: 1; transform: none; } .skill-bar-fill, .attr-fill { width: var(--w, 0); } .gauge .arc { stroke-dashoffset: var(--off, 11.3); }</style></noscript>
 </head>
@@ -53,10 +53,15 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">About</span>
-          <h2 class="section-title">关于我
-            <svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 18 2 33 9 T 63 9 T 93 9 T 120 7" fill="none" stroke="#FFC94D" stroke-width="5" stroke-linecap="round"/></svg>
-          </h2>
-          <p class="section-sub">天使的幸运草</p>
+          <!-- ✏️ 关于我抬头：背景取自 BanG Dream! Project 官方虚拟背景（en.bang-dream.com 免费下载），
+               用浅绿压成绿调；换图替换 assets/img/banner/about-bg.jpg 即可 -->
+          <div class="about-banner">
+            <div class="about-banner-inner">
+              <span class="ab-kicker"><i class="clover-ico" aria-hidden="true"></i>关于我<i class="clover-ico" aria-hidden="true"></i></span>
+              <h2 class="about-art-text" data-text="天使的幸运草"><span>天使的幸运草</span></h2>
+              <span class="ab-sub font-latin">MORE MORE JUMP! ・ 花里みのり</span>
+            </div>
+          </div>
         </div>
 
         <div class="about-bento reveal">
@@ -136,12 +141,14 @@
         </div>
           <!-- ✏️ 网易云音乐外链播放器：替换 id 即可换歌单/歌曲（type=0 歌单，type=2 单曲） -->
           <div class="about-card about-music mmj-shizuku">
-            <div class="about-label">音乐 · MORE MORE JUMP!</div>
+            <div class="music-head">
+              <div class="about-label">音乐 · MORE MORE JUMP!</div>
+              <a class="music-open" href="https://music.163.com/#/playlist?id=17830477544" target="_blank" rel="noopener">在网易云打开歌单 ↗</a>
+            </div>
             <div class="music-player">
               <iframe id="music-frame" title="网易云音乐播放器" frameborder="no" loading="lazy"
                       src="https://music.163.com/outchain/player?type=0&id=17830477544&auto=0&height=550"></iframe>
             </div>
-            <p class="music-open"><a href="https://music.163.com/#/playlist?id=17830477544" target="_blank" rel="noopener">在网易云音乐打开歌单 ↗</a></p>
           </div>
           <div class="about-card about-oshi" id="oshi">
             <div class="about-label">推し</div>
