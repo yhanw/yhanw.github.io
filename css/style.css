@@ -2125,3 +2125,12 @@ html.dark .token-note { color: #EAD9A8; }
 .about-oshi .oshi-name .oshi-sub { font-size: 0.74rem; color: var(--ink-faint); font-weight: 400; letter-spacing: 0.3px; }
 .about-oshi .oshi-ip { grid-row: 1; }
 .about-oshi .oshi-row .oshi-tags { grid-row: 1; }
+/* Steam 与音乐卡：内容顶部对齐（同排两块起始位置一致） */
+.steam-card,
+.about-music {
+  justify-content: flex-start;
+}
+.about-music .music-player { margin-top: 0; }
+.steam-card .steam-head { margin-bottom: 10px; }
+.about-music .about-label,
+.steam-card .about-label { min-height: 22px; }
