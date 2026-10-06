@@ -2404,3 +2404,19 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.48; }
   .steam-card { grid-template-columns: minmax(0, 1fr) 132px; }
   .steam-art img { object-position: bottom center; }
 }
+/* 立绘深浅：整体调深一档 */
+.about-card::after { opacity: 0.58; }
+.about-card:hover::after { opacity: 0.72; }
+html.dark .about-card::after { opacity: 0.46; }
+html.dark .about-card:hover::after { opacity: 0.60; }
+.steam-art img { opacity: 0.58; }
+.steam-card:hover .steam-art img { opacity: 0.72; }
+html.dark .steam-art img { opacity: 0.46; }
+html.dark .steam-card:hover .steam-art img { opacity: 0.60; }
+
+@media (max-width: 900px) {
+  .about-card::after { opacity: 0.42; }
+  html.dark .about-card::after { opacity: 0.34; }
+  .steam-art img { opacity: 0.50; }
+  html.dark .steam-art img { opacity: 0.38; }
+}
