@@ -2343,3 +2343,22 @@ html.dark .steam-art img { opacity: 0.82; }
   .steam-card { grid-template-columns: minmax(0, 1fr) 112px; }
   .steam-art img { object-position: top center; }
 }
+/* ============================================================
+   四张底板立绘 — 统一深浅（适中一档）
+   ============================================================ */
+.about-card::after { opacity: 0.45; }
+.about-card:hover::after { opacity: 0.58; }
+html.dark .about-card::after { opacity: 0.36; }
+html.dark .about-card:hover::after { opacity: 0.48; }
+
+.steam-art img { opacity: 0.45; }
+.steam-card:hover .steam-art img { opacity: 0.58; }
+html.dark .steam-art img { opacity: 0.36; }
+html.dark .steam-card:hover .steam-art img { opacity: 0.48; }
+
+@media (max-width: 900px) {
+  .about-card::after { opacity: 0.30; }
+  html.dark .about-card::after { opacity: 0.24; }
+  .steam-art img { opacity: 0.38; }
+  html.dark .steam-art img { opacity: 0.30; }
+}
