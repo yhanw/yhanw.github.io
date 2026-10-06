@@ -2378,3 +2378,16 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.48; }
 @media (max-width: 900px) {
   .steam-card { grid-template-columns: minmax(0, 1fr) 96px; }
 }
+/* 修正：Steam 卡内容不再限宽（消除列表与立绘间的空隙） */
+.steam-card .about-label,
+.steam-card .steam-head,
+.steam-card .steam-games { max-width: 100%; }
+
+/* 修正：简介卡右侧留白加大，遥的立绘与正文分离 */
+.about-body.about-card { padding-right: 118px; }
+.mmj-haruka::after { width: 32%; height: 82%; }
+
+@media (max-width: 900px) {
+  .about-body.about-card { padding-right: 22px; }
+  .mmj-haruka::after { width: 44%; height: 70%; }
+}
