@@ -2194,3 +2194,30 @@ html.dark .about-card:hover::after { opacity: 0.26; }
 }
 /* 推し卡：允许溢出（悬停气泡不被裁剪） */
 .about-oshi.about-card { overflow: visible; }
+/* 底板立绘：缩小 + 渐隐遮罩（避免遮挡文字） */
+.about-card::after {
+  right: -4px;
+  bottom: -4px;
+  height: 76%;
+  width: 34%;
+  opacity: 0.13;
+  -webkit-mask-image: linear-gradient(to top left, #000 30%, transparent 80%);
+  mask-image: linear-gradient(to top left, #000 30%, transparent 80%);
+}
+.about-card:hover::after { opacity: 0.20; }
+.mmj-minori::after { height: 76%; width: 34%; }
+.mmj-haruka::after { height: 78%; width: 32%; }
+.mmj-airi::after { height: 80%; width: 30%; }
+.mmj-shizuku::after { height: 78%; width: 30%; }
+
+/* 文字区域与立绘保持间距 */
+.about-body.about-card { padding-right: 88px; }
+.about-avatar.about-card { padding-bottom: 28px; }
+
+html.dark .about-card::after { opacity: 0.11; }
+html.dark .about-card:hover::after { opacity: 0.17; }
+
+@media (max-width: 900px) {
+  .about-card::after { height: 62%; width: 36%; opacity: 0.10; }
+  .about-body.about-card { padding-right: 22px; }
+}
