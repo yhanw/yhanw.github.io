@@ -1953,3 +1953,55 @@ html.dark .token-note { color: #EAD9A8; }
   .skill-bar-fill, .attr-fill { width: var(--w, 0); transition: none; }
   .gauge .arc { stroke-dashoffset: var(--off, 565.5); transition: none; }
 }
+
+/* ============================================================
+   关于我 — 规整卡片网格（bento）
+   ============================================================ */
+.about-bento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+.about-card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 24px 26px;
+  margin: 0;
+  position: relative;
+}
+.about-extra,
+.about-skills,
+.about-music,
+.about-oshi { grid-column: 1 / -1; margin-top: 0; }
+.about-card .about-label:first-child { margin-top: 0; }
+.about-avatar.about-card { text-align: center; }
+.about-avatar.about-card .avatar-y { margin-bottom: 12px; }
+.about-body.about-card > p:last-of-type { margin-bottom: 0; }
+.about-oshi .oshi-list {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+.about-music .music-player { margin-top: 12px; }
+.about-music .music-player iframe { display: block; margin-inline: auto; }
+.gh-chart {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 20px;
+  margin-top: 0;
+}
+.gh-chart img { border: none; padding: 0; box-shadow: none; background: none; }
+.about-extra { align-items: stretch; }
+
+@media (max-width: 900px) {
+  .about-bento { grid-template-columns: 1fr; }
+  .about-card { padding: 20px 18px; }
+}
