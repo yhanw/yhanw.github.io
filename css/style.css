@@ -2362,3 +2362,19 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.48; }
   .steam-art img { opacity: 0.38; }
   html.dark .steam-art img { opacity: 0.30; }
 }
+/* Steam 游戏名：不换行（超出省略号），并给列表更多横向空间 */
+.steam-card { grid-template-columns: minmax(0, 1fr) 128px; }
+.steam-game img { width: 54px; }
+.sg-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+}
+.sg-hours { font-size: 0.72rem; }
+.steam-games { gap: 6px; }
+.steam-game { padding: 4px 5px; }
+
+@media (max-width: 900px) {
+  .steam-card { grid-template-columns: minmax(0, 1fr) 96px; }
+}
