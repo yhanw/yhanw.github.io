@@ -2391,3 +2391,16 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.48; }
   .about-body.about-card { padding-right: 22px; }
   .mmj-haruka::after { width: 44%; height: 70%; }
 }
+/* Steam 卡立绘：不裁切（完整显示含手部）+ 与其他三张一致的 hover 反馈 */
+.steam-card { grid-template-columns: minmax(0, 1fr) 204px; }
+.steam-art img {
+  object-fit: contain;
+  object-position: bottom center;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.steam-card:hover .steam-art img { transform: translateY(-4px); }
+
+@media (max-width: 900px) {
+  .steam-card { grid-template-columns: minmax(0, 1fr) 132px; }
+  .steam-art img { object-position: bottom center; }
+}
