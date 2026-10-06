@@ -2084,3 +2084,16 @@ html.dark .token-note { color: #EAD9A8; }
   .about-oshi .oshi-row:last-child { border-bottom: none; }
   .about-music .music-player iframe { height: 400px; }
 }
+/* ============================================================
+   关于区 — 等高对齐修正
+   ============================================================ */
+.about-bento { align-items: stretch; }
+.about-avatar.about-card,
+.steam-card,
+.about-music {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-body.about-card { display: flex; flex-direction: column; justify-content: flex-start; }
+.about-oshi.about-card { justify-content: flex-start; }
