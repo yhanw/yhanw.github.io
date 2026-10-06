@@ -169,6 +169,23 @@ ul { list-style: none; }
   vertical-align: -0.12em;
 }
 
+/* 区块小标签前的四叶草 */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: 0.4em;
+  background-color: currentColor;
+  -webkit-mask-image: var(--clover-url);
+  mask-image: var(--clover-url);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  vertical-align: -0.05em;
+}
+
 /* 区块标题前的小四叶草 */
 .section-title::before {
   content: "";
@@ -771,23 +788,8 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .sg-hours { font-family: var(--font-latin); font-size: 0.78rem; color: var(--ink-faint); flex-shrink: 0; }
 
 /* 网易云音乐播放器 */
-.music-player { margin-top: 16px; }
-.music-tabs { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-.music-tab {
-  border: 2px solid var(--line);
-  background: var(--card);
-  color: var(--ink-soft);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.music-tab:hover { border-color: var(--pink); color: var(--pink-deep); }
-.music-tab.is-active { background: var(--pink); border-color: transparent; color: var(--on-primary); }
-.music-player iframe { width: 100%; max-width: 420px; height: 86px; border: none; border-radius: var(--r-sm); }
+.music-player { margin-top: 14px; }
+.music-player iframe { width: 100%; max-width: 520px; height: 430px; border: none; border-radius: var(--r-md); background: var(--card-2); }
 
 /* Hero 打字机 */
 .typing-caret {
