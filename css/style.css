@@ -2005,3 +2005,13 @@ html.dark .token-note { color: #EAD9A8; }
   .about-bento { grid-template-columns: 1fr; }
   .about-card { padding: 20px 18px; }
 }
+/* 关于区布局微调：GitHub 整行铺满、卡片贴合内容 */
+.about-bento { align-items: start; }
+.gh-chart { grid-column: 1 / -1; }
+.gh-chart img { width: 100%; height: auto; display: block; }
+.steam-card { grid-column: auto; }
+.about-music { grid-column: auto; }
+.about-oshi { grid-column: 1 / -1; }
+@media (max-width: 900px) {
+  .gh-chart, .steam-card, .about-music, .about-oshi { grid-column: 1 / -1; }
+}
