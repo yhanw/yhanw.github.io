@@ -2134,3 +2134,21 @@ html.dark .token-note { color: #EAD9A8; }
 .steam-card .steam-head { margin-bottom: 10px; }
 .about-music .about-label,
 .steam-card .about-label { min-height: 22px; }
+/* 自我介绍：引导句 + 签名句（提升辨识度） */
+.about-lead {
+  font-size: 1.06rem;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.9;
+}
+.about-lead .hl { font-weight: 700; }
+.about-sign {
+  margin-top: 4px;
+  padding-left: 14px;
+  border-left: 3px solid var(--pink);
+  font-family: var(--font-display);
+  color: var(--pink-deep);
+  font-size: 0.98rem;
+}
+.about-body.about-card > p { margin-bottom: 12px; }
+.about-body.about-card > p:last-of-type { margin-bottom: 0; }
