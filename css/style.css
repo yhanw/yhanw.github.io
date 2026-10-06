@@ -2097,3 +2097,25 @@ html.dark .token-note { color: #EAD9A8; }
 }
 .about-body.about-card { display: flex; flex-direction: column; justify-content: flex-start; }
 .about-oshi.about-card { justify-content: flex-start; }
+/* ============================================================
+   推し — 每行结构统一（头像｜IP徽章｜名字+组合｜标签 固定列）
+   ============================================================ */
+.about-oshi .oshi-row {
+  display: grid;
+  grid-template-columns: 40px 108px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 2px 12px;
+  padding: 9px 4px;
+}
+.about-oshi .oshi-info { display: contents; }
+.about-oshi .oshi-row .oshi-avatar { grid-column: 1; grid-row: 1 / span 2; margin: 0; }
+.about-oshi .oshi-ip { grid-column: 2; grid-row: 1 / span 2; justify-self: start; white-space: nowrap; }
+.about-oshi .oshi-name { grid-column: 3; grid-row: 1; margin: 0; }
+.about-oshi .oshi-sub { grid-column: 3; grid-row: 2; }
+.about-oshi .oshi-row .oshi-tags { grid-column: 4; grid-row: 1 / span 2; margin-left: 0; justify-content: flex-end; }
+
+@media (max-width: 900px) {
+  .about-oshi .oshi-row { grid-template-columns: 40px 100px minmax(0, 1fr); }
+  .about-oshi .oshi-tags { grid-column: 2 / span 2 !important; grid-row: 3 !important; justify-content: flex-start !important; margin-top: 4px; }
+}
