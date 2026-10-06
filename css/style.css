@@ -2015,3 +2015,31 @@ html.dark .token-note { color: #EAD9A8; }
 @media (max-width: 900px) {
   .gh-chart, .steam-card, .about-music, .about-oshi { grid-column: 1 / -1; }
 }
+/* 推し：紧凑两列布局 */
+.about-oshi .oshi-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+}
+.about-oshi .oshi-row { padding: 8px 4px; gap: 12px; }
+.about-oshi .oshi-row .oshi-avatar { width: 40px; height: 40px; font-size: 1.15rem; }
+.about-oshi .oshi-row .oshi-avatar::after { inset: -4px; border-width: 1.5px; }
+.about-oshi .oshi-name { font-size: 1rem; }
+.about-oshi .oshi-sub { font-size: 0.72rem; }
+.about-oshi .oshi-ip { font-size: 0.72rem; padding: 3px 10px; }
+.about-oshi .oshi-tags span { font-size: 0.72rem; padding: 3px 10px; }
+.about-oshi .oshi-row:nth-last-child(-n+2) { border-bottom: none; }
+
+/* 音乐：整行 + 加高播放器 */
+.about-music { grid-column: 1 / -1; }
+.about-music .music-player iframe { max-width: 100%; width: 100%; height: 550px; }
+.music-open { margin-top: 10px; text-align: center; font-size: 0.85rem; }
+.music-open a { color: var(--pink-deep); font-weight: 600; }
+.music-open a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .about-oshi .oshi-list { grid-template-columns: 1fr; }
+  .about-oshi .oshi-row:nth-last-child(-n+2) { border-bottom: 1.5px dashed var(--line); }
+  .about-oshi .oshi-row:last-child { border-bottom: none; }
+  .about-music .music-player iframe { height: 450px; }
+}
