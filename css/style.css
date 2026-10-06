@@ -147,10 +147,11 @@ ul { list-style: none; }
 .font-latin { font-family: var(--font-latin); }
 
 /* ============================================================
-   四叶草元素（花里みのり / MORE MORE JUMP!）
+   统一图标：官方 MORE MORE JUMP!（unite02）团队 logo
+   原四叶草图标全部改用该 logo 作为蒙版（--clover-url 变量名保留）
    ============================================================ */
 :root {
-  --clover-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23000'%3E%3Cpath d='M12 2.4c-2.6 0-4.5 1.9-4.5 4.4 0 2.4 2 3.9 4.5 5.6 2.5-1.7 4.5-3.2 4.5-5.6 0-2.5-1.9-4.4-4.5-4.4z'/%3E%3Cpath d='M12 2.4c-2.6 0-4.5 1.9-4.5 4.4 0 2.4 2 3.9 4.5 5.6 2.5-1.7 4.5-3.2 4.5-5.6 0-2.5-1.9-4.4-4.5-4.4z' transform='rotate(90 12 12)'/%3E%3Cpath d='M12 2.4c-2.6 0-4.5 1.9-4.5 4.4 0 2.4 2 3.9 4.5 5.6 2.5-1.7 4.5-3.2 4.5-5.6 0-2.5-1.9-4.4-4.5-4.4z' transform='rotate(180 12 12)'/%3E%3Cpath d='M12 2.4c-2.6 0-4.5 1.9-4.5 4.4 0 2.4 2 3.9 4.5 5.6 2.5-1.7 4.5-3.2 4.5-5.6 0-2.5-1.9-4.4-4.5-4.4z' transform='rotate(270 12 12)'/%3E%3Cpath d='M12.7 12.6c.3 3.1 1.2 5.8 2.8 8.2' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+  --clover-url: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cg%20fill%3D%27%23000%27%3E%3Cpath%20d%3D%27M12%2012C8.9%2010.2%207.7%206.9%209.5%204.9%2010.9%203.3%2013.1%203.3%2014.5%204.9%2016.3%206.9%2015.1%2010.2%2012%2012Z%27%2F%3E%3Cpath%20d%3D%27M12%2012C8.9%2010.2%207.7%206.9%209.5%204.9%2010.9%203.3%2013.1%203.3%2014.5%204.9%2016.3%206.9%2015.1%2010.2%2012%2012Z%27%20transform%3D%27rotate%2890%2012%2012%29%27%2F%3E%3Cpath%20d%3D%27M12%2012C8.9%2010.2%207.7%206.9%209.5%204.9%2010.9%203.3%2013.1%203.3%2014.5%204.9%2016.3%206.9%2015.1%2010.2%2012%2012Z%27%20transform%3D%27rotate%28180%2012%2012%29%27%2F%3E%3Cpath%20d%3D%27M12%2012C8.9%2010.2%207.7%206.9%209.5%204.9%2010.9%203.3%2013.1%203.3%2014.5%204.9%2016.3%206.9%2015.1%2010.2%2012%2012Z%27%20transform%3D%27rotate%28270%2012%2012%29%27%2F%3E%3Cpath%20d%3D%27M12%2012.3c.15%203.15.95%205.85%202.4%208.2%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 .clover-ico {
   display: inline-block;
@@ -173,9 +174,9 @@ ul { list-style: none; }
 .eyebrow::before {
   content: "";
   display: inline-block;
-  width: 0.85em;
-  height: 0.85em;
-  margin-right: 0.4em;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.42em;
   background-color: currentColor;
   -webkit-mask-image: var(--clover-url);
   mask-image: var(--clover-url);
@@ -190,9 +191,9 @@ ul { list-style: none; }
 .section-title::before {
   content: "";
   display: inline-block;
-  width: 0.62em;
-  height: 0.62em;
-  margin-right: 0.32em;
+  width: 0.68em;
+  height: 0.68em;
+  margin-right: 0.34em;
   background-color: var(--pink);
   -webkit-mask-image: var(--clover-url);
   mask-image: var(--clover-url);
@@ -224,9 +225,9 @@ ul { list-style: none; }
 .footer-brand::before {
   content: "";
   display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-right: 0.35em;
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.38em;
   background-color: var(--pink);
   -webkit-mask-image: var(--clover-url);
   mask-image: var(--clover-url);
@@ -301,7 +302,7 @@ ul { list-style: none; }
   flex-shrink: 0;
   box-shadow: 0 4px 10px rgba(78, 158, 31, 0.35);
 }
-.brand-mark .clover-ico { width: 20px; height: 20px; }
+.brand-mark .clover-ico { width: 21px; height: 21px; }
 
 .nav-links {
   display: flex;
@@ -1072,8 +1073,6 @@ html.dark .theme-toggle .icon-sun { display: block; }
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.95);
 }
-.oa-minori { background: linear-gradient(135deg, #FFE3D1, #FFCCAA); border-color: #FFCCAA; }
-.oa-shizuku { background: linear-gradient(135deg, #D8F7F0, #99EEDD); border-color: #99EEDD; }
 .oa-tae { background: linear-gradient(135deg, #D3E9FF, #2E9BFF); border-color: #2E9BFF; }
 .oa-sayo { background: linear-gradient(135deg, #E4D9F9, #8C5BE1); border-color: #8C5BE1; }
 .oa-kokoro { background: linear-gradient(135deg, #FFE7CC, #FF8F2C); border-color: #FF8F2C; }
@@ -2146,9 +2145,9 @@ html.dark .token-note { color: #EAD9A8; }
 .about-sign {
   margin-top: 4px;
   padding-left: 14px;
-  border-left: 3px solid var(--pink);
+  border-left: 3px solid #9AD3FF;   /* 与简介卡一致的蓝 */
   font-family: var(--font-display);
-  color: var(--pink-deep);
+  color: var(--sky-deep);
   font-size: 0.98rem;
 }
 .about-body.about-card > p { margin-bottom: 12px; }
@@ -2608,62 +2607,112 @@ html.dark .steam-card:hover .steam-art img { opacity: 0.60; }
 /* 关于我：去掉抬头后，首屏留白收一点 */
 #about.section-block { padding-top: 52px; }
 /* ============================================================
-   开头 — yhw 的个人主页
-   打底：MORE MORE JUMP! 单位色壁纸 + 四人团照做透明蒙版
+   开头 — 「天使的幸运草」艺术字 + MMJ 四人团照透明蒙版
+   文字只占左侧 ~36%，团照四人位于右侧（不遮挡）
    ============================================================ */
 .site-open {
   position: relative;
   margin-bottom: 14px;
   min-height: 196px;
-  padding: 30px 24px;
+  padding: 26px 30px 26px 44px;
   border: 2px solid var(--line);
   border-radius: var(--r-lg);
   overflow: hidden;
   isolation: isolate;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-shadow: var(--shadow-soft);
   background-color: #DDF1C3;
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, .44), rgba(255, 255, 255, .18)), url("../assets/img/mmj-q/bg.jpg");
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .46), rgba(255, 255, 255, .20)), url("../assets/img/mmj-q/bg.jpg");
   background-size: auto, cover;
   background-position: center, center;
   background-repeat: no-repeat;
 }
-/* 四人团照：半透明蒙版层（取底色色相 + 团照明度，四周渐隐） */
+/* 团照蒙版：左浅右实，四人完整保留在右侧（原色，不做绿色化） */
 .site-open::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   background: url("../assets/img/mmj-q/group.jpg") center 34% / cover no-repeat;
-  opacity: .30;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  opacity: .34;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, .22) 0%, rgba(0, 0, 0, .55) 14%, #000 30%, #000 94%, rgba(0, 0, 0, .85) 100%), linear-gradient(to bottom, rgba(0, 0, 0, .78) 0%, #000 12%, #000 88%, rgba(0, 0, 0, .78) 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, .22) 0%, rgba(0, 0, 0, .55) 14%, #000 30%, #000 94%, rgba(0, 0, 0, .85) 100%), linear-gradient(to bottom, rgba(0, 0, 0, .78) 0%, #000 12%, #000 88%, rgba(0, 0, 0, .78) 100%);
   mask-composite: intersect;
   pointer-events: none;
 }
+/* 艺术字：绿色渐变填充 + 白色描边 + 立体投影 */
 .site-open-title {
   position: relative;
   z-index: 2;
+  isolation: isolate;
   margin: 0;
+  max-width: 36%;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
   line-height: 1.3;
-  letter-spacing: .06em;
-  text-indent: .06em;
-  text-align: center;
-  color: var(--pink-deep);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .6), 0 6px 16px rgba(255, 255, 255, .5);
+  letter-spacing: .08em;
+  text-indent: .08em;
+  text-align: left;
+  color: #3F8C18;                       /* 适中的主题绿：不惨白也不发黑 */
+  text-shadow:
+    -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff,
+    -2px 0 0 #fff, 2px 0 0 #fff, 0 -2px 0 #fff, 0 2px 0 #fff,
+    0 4px 10px rgba(16, 48, 10, .26);
 }
+.site-open-title::before { content: none; }
 html.dark .site-open {
   background-image: linear-gradient(180deg, rgba(20, 26, 17, .58), rgba(20, 26, 17, .70)), url("../assets/img/mmj-q/bg.jpg");
 }
-html.dark .site-open::after { opacity: .22; }
-html.dark .site-open-title { color: var(--pink); text-shadow: 0 2px 10px rgba(0, 0, 0, .45); }
-@media (max-width: 620px) {
-  .site-open { min-height: 150px; padding: 24px 16px; }
-  .site-open-title { font-size: 1.4rem; }
+html.dark .site-open::after { opacity: .26; }
+html.dark .site-open-title { color: #EAF8D8; text-shadow: -2px -2px 0 #14210C, 2px -2px 0 #14210C, -2px 2px 0 #14210C, 2px 2px 0 #14210C, -2.5px 0 0 #14210C, 2.5px 0 0 #14210C, 0 -2.5px 0 #14210C, 0 2.5px 0 #14210C, 0 5px 12px rgba(0, 0, 0, .5); }
+
+@media (max-width: 900px) {
+  .site-open { padding: 22px 22px 22px 28px; min-height: 176px; }
+  .site-open-title { max-width: 46%; }
 }
+@media (max-width: 620px) {
+  .site-open { min-height: 148px; padding: 20px 16px; }
+  .site-open::after { background-position: 72% 34%; opacity: .3; }
+  .site-open-title { max-width: 62%; font-size: 1.45rem; }
+
+
+}
+/* ============================================================
+   关于区 — 每张卡片各自配色：顶部色条 + 顶部淡色渐变 + 悬停浮起
+   （替代原本统一的灰色边框）
+   ============================================================ */
+.about-bento > .about-card {
+  border-top-width: 4px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.about-bento > .about-card:hover { transform: translateY(-3px); }
+.about-bento > .mmj-minori.about-card {
+  border-top-color: #FFCCAA;              /* みのり 杏色 */
+  background-image: linear-gradient(180deg, rgba(255, 204, 170, .24), rgba(255, 204, 170, 0) 40%);
+}
+.about-bento > .mmj-minori.about-card:hover { box-shadow: 0 12px 28px rgba(184, 101, 58, .24); }
+.about-bento > .mmj-haruka.about-card {
+  border-top-color: #9AD3FF;              /* 遥 水色 */
+  background-image: linear-gradient(180deg, rgba(154, 211, 255, .24), rgba(154, 211, 255, 0) 40%);
+}
+.about-bento > .mmj-haruka.about-card:hover { box-shadow: 0 12px 28px rgba(95, 143, 201, .24); }
+.about-bento > .steam-card.about-card {
+  border-top-color: #FFA6BE;              /* 愛莉 粉 */
+  background-image: linear-gradient(180deg, rgba(255, 166, 190, .24), rgba(255, 166, 190, 0) 40%);
+}
+.about-bento > .steam-card.about-card:hover { box-shadow: 0 12px 28px rgba(214, 92, 132, .22); }
+.about-bento > .mmj-shizuku.about-card {
+  border-top-color: #99EEDD;              /* 雫 青绿 */
+  background-image: linear-gradient(180deg, rgba(153, 238, 221, .26), rgba(153, 238, 221, 0) 40%);
+}
+.about-bento > .mmj-shizuku.about-card:hover { box-shadow: 0 12px 28px rgba(47, 158, 143, .24); }
+.about-bento > .about-oshi.about-card {
+  border-top-color: var(--pink);          /* 推し：主题绿 */
+  background-image: linear-gradient(180deg, rgba(78, 158, 31, .16), rgba(78, 158, 31, 0) 36%);
+}
+.about-bento > .about-oshi.about-card:hover { box-shadow: 0 12px 28px rgba(78, 158, 31, .22); }
+html.dark .about-bento > .about-card { background-image: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, 0) 40%); }
