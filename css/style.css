@@ -760,6 +760,11 @@ html.dark .theme-toggle .icon-sun { display: block; }
 .about-extra { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; margin-top: 28px; position: relative; z-index: 1; }
 .about-extra .gh-chart { margin-top: 0; }
 
+/* 关于区内的技能块 */
+.about-skills { margin-top: 28px; position: relative; z-index: 1; }
+.about-skills .about-label { margin-top: 0; }
+.about-skills .skills-grid { gap: 18px; }
+
 /* Steam 卡片 */
 .steam-card {
   border: 2px solid var(--line);
