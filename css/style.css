@@ -2221,3 +2221,22 @@ html.dark .about-card:hover::after { opacity: 0.17; }
   .about-card::after { height: 62%; width: 36%; opacity: 0.10; }
   .about-body.about-card { padding-right: 22px; }
 }
+/* 底板立绘：提高可见度（但仍保留渐隐，避免压字） */
+.about-card::after {
+  height: 86%;
+  width: 38%;
+  opacity: 0.34;
+  -webkit-mask-image: linear-gradient(to top left, #000 42%, transparent 88%);
+  mask-image: linear-gradient(to top left, #000 42%, transparent 88%);
+}
+.about-card:hover::after { opacity: 0.46; }
+.mmj-minori::after { height: 86%; width: 38%; }
+.mmj-haruka::after { height: 88%; width: 36%; }
+.mmj-airi::after { height: 90%; width: 34%; }
+.mmj-shizuku::after { height: 88%; width: 34%; }
+html.dark .about-card::after { opacity: 0.28; }
+html.dark .about-card:hover::after { opacity: 0.38; }
+
+@media (max-width: 900px) {
+  .about-card::after { height: 70%; width: 38%; opacity: 0.24; }
+}
