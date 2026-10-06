@@ -2328,3 +2328,18 @@ html.dark .steam-art img { opacity: 0.82; }
   .steam-card { grid-template-columns: 1fr; }
   .steam-art { display: none; }
 }
+/* Steam 卡右栏：立绘撑满整个格子高度 */
+.steam-card { grid-template-columns: minmax(0, 1fr) 150px; }
+.steam-art { align-items: stretch; }
+.steam-art img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--r-md);
+}
+@media (max-width: 900px) {
+  .steam-card { grid-template-columns: minmax(0, 1fr) 112px; }
+  .steam-art img { object-position: top center; }
+}
