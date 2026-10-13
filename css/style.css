@@ -2142,14 +2142,7 @@ html.dark .token-note { color: #EAD9A8; }
   line-height: 1.9;
 }
 .about-lead .hl { font-weight: 700; }
-.about-sign {
-  margin-top: 4px;
-  padding-left: 14px;
-  border-left: 3px solid #9AD3FF;   /* 与简介卡一致的蓝 */
-  font-family: var(--font-display);
-  color: var(--sky-deep);
-  font-size: 0.98rem;
-}
+
 .about-body.about-card > p { margin-bottom: 12px; }
 .about-body.about-card > p:last-of-type { margin-bottom: 0; }
 /* ============================================================
@@ -2716,3 +2709,12 @@ html.dark .site-open-title { color: #EAF8D8; text-shadow: -2px -2px 0 #14210C, 2
 }
 .about-bento > .about-oshi.about-card:hover { box-shadow: 0 12px 28px rgba(78, 158, 31, .22); }
 html.dark .about-bento > .about-card { background-image: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, 0) 40%); }
+/* 友链头像（图片版） */
+.friend-avatar { overflow: hidden; }
+.friend-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+
+/* 开头艺术字稍微上抬 */
+.site-open-title { transform: translateY(-14px); }
+@media (max-width: 620px) {
+  .site-open-title { transform: translateY(-9px); }
+}
